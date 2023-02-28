@@ -1,3 +1,5 @@
+import "./NavContainer.scss";
+
 function NavContainer() {
     return (
         <div className="nav__container">
