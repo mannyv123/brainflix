@@ -1,8 +1,9 @@
 @font-face {
     font-family: "AvenirNext LT Pro";
-    src: url("AvenirNextLTPro-Regular.woff2") format("woff2"),
-        url("AvenirNextLTPro-Regular.woff") format("woff"),
-        url("AvenirNextLTPro-Regular.ttf") format("truetype");
+    src: url("../../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"),
+        url("../../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff"),
+        url("../../assets/fonts/AvenirNextLTPro-Regular.ttf") format("truetype"),
+        url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -10,8 +11,10 @@
 
 @font-face {
     font-family: "AvenirNext LT Pro";
-    src: url("AvenirNextLTPro-Bold.woff2") format("woff2"), url("AvenirNextLTPro-Bold.woff") format("woff"),
-        url("AvenirNextLTPro-Bold.ttf") format("truetype");
+    src: url("../../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"),
+        url("../../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff"),
+        url("../../assets/fonts/AvenirNextLTPro-Bold.ttf") format("truetype"),
+        url("../../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
