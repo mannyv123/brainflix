@@ -1,0 +1,56 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.video {
+    @include outside-padding;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__title {
+        font-weight: bold;
+        font-size: $fs-page-header-mobile;
+    }
+
+    &__details {
+        border-top: 0.0625rem solid $outline-color;
+        border-bottom: 0.0625rem solid $outline-color;
+        display: flex;
+        justify-content: space-between;
+        font-size: $fs-sub-header-mobile;
+        padding: 1rem 0;
+        color: $seconday-text-color;
+    }
+
+    &__post-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__channel {
+        font-weight: bold;
+        color: $primary-text-color;
+    }
+
+    &__analytics {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__views {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    &__likes {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    &__description {
+        font-size: $fs-body-mobile;
+        line-height: 1.125rem;
+    }
+}

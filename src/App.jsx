@@ -2,9 +2,11 @@ import "./App.scss";
 import CurrentVideo from "./components/CurrentVideo/CurrentVideo";
 import CurrentVideoDetails from "./components/CurrentVideoDetails/CurrentVideoDetails";
 import Header from "./components/Header/Header";
+import NextVideos from "./components/NextVideos/NextVideos";
 
 // Temp Data
 const tempDataArray = require("./data/video-details.json");
+const tempDataArrayVidList = require("./data/videos.json");
 
 function App() {
     //temp current video
@@ -13,7 +15,8 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <CurrentVideo />
+            {/* Note: videoSource just a placeholder; will not work until api added */}
+            <CurrentVideo thumbnail={currentVideo.image} videoSource={currentVideo.video} />
             <CurrentVideoDetails
                 title={currentVideo.title}
                 channel={currentVideo.channel}
@@ -22,6 +25,7 @@ function App() {
                 likes={currentVideo.likes}
                 description={currentVideo.description}
             />
+            <NextVideos videos={tempDataArrayVidList} />
         </div>
     );
 }
