@@ -1,3 +1,4 @@
+import "./NextVideos.scss";
 import NextVideoCard from "../NextVideoCard/NextVideoCard";
 
 function NextVideos(props) {
@@ -7,7 +8,12 @@ function NextVideos(props) {
             <ul className="next-video__list">
                 {props.videos.map((video) => {
                     return (
-                        <NextVideoCard thumbnail={video.image} title={video.title} channel={video.channel} />
+                        <NextVideoCard
+                            key={video.id}
+                            thumbnail={video.image}
+                            title={video.title}
+                            channel={video.channel}
+                        />
                     );
                 })}
             </ul>
