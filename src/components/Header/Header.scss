@@ -1,0 +1,15 @@
+.nav {
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__avatar {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        background-image: url("../../assets/images/Mohan-muruge.jpg");
+        background-position: top 50% right 75%;
+        background-size: cover;
+    }
+}

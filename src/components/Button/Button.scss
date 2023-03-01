@@ -13,24 +13,3 @@
 //     }
 
 // }
-
-.button {
-    background-color: #0095ff;
-    height: 2.5rem;
-    border-radius: 0.25rem;
-    color: #ffffff;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &__upload {
-        &--mobile {
-            width: 100%;
-        }
-
-        &--tablet {
-            display: none;
-        }
-    }
-}
