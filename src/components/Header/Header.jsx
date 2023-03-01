@@ -1,5 +1,6 @@
 import "./Header.scss";
 import logo from "../../assets/logo/BrainFlix-logo.svg";
+import searchIcon from "../../assets/icons/search.svg";
 
 function Header() {
     return (
@@ -10,8 +11,14 @@ function Header() {
                 </a>
                 <div className="nav__container">
                     <div className="nav__search">
-                        {/* <img src= alt="search icon" className="nav__search-icon" /> */}
-                        <input type="text" name="search" id="search" placeholder="Search" />
+                        <img src={searchIcon} alt="search icon" className="nav__search-icon" />
+                        <input
+                            type="text"
+                            name="search"
+                            id="search"
+                            placeholder="Search"
+                            className="nav__search-input"
+                        />
                     </div>
                     <a className="button button__upload button__upload--tablet" href="#">
                         Upload

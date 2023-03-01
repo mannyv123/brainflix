@@ -13,3 +13,8 @@
         @content;
     }
 }
+
+/* Outside Padding */
+@mixin outside-padding {
+    padding: 1rem;
+}

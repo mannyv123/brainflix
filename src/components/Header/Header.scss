@@ -1,7 +1,34 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
 .nav {
+    @include outside-padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
     &__container {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    &__search {
+        height: 2.25rem;
+        border: 0.0625rem solid $outline-color;
+        border-radius: 0.25rem;
+        flex: 1;
+    }
+
+    // &__search-icon {
+
+    // }
+
+    &__search-input {
+        height: 100%;
+        border: none;
     }
 
     &__avatar {
