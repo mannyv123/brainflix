@@ -19,16 +19,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: $fs-labels-and-buttons;
+    font-weight: bold;
 
     &__upload {
         text-decoration: none;
-
-        &--mobile {
-            width: 100%;
-        }
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        width: 100%;
 
         &--tablet {
             display: none;
+        }
+    }
+
+    &__upload-icon {
+        width: 1.25rem;
+
+        &--hidden {
+            visibility: hidden;
+            height: 1.25rem;
         }
     }
 }

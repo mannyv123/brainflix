@@ -1,6 +1,7 @@
 import "./Header.scss";
 import logo from "../../assets/logo/BrainFlix-logo.svg";
 import searchIcon from "../../assets/icons/search.svg";
+import uploadIcon from "../../assets/icons/upload.svg";
 
 function Header() {
     return (
@@ -24,8 +25,10 @@ function Header() {
                         Upload
                     </a>
                     <div className="nav__avatar"></div>
-                    <a className="button button__upload button__upload--mobile" href="#">
+                    <a className="button button__upload" href="#">
+                        <img src={uploadIcon} alt="upload video icon" className="button__upload-icon" />
                         Upload
+                        <div className="button__upload-icon button__upload-icon--hidden"></div>
                     </a>
                 </div>
             </nav>
