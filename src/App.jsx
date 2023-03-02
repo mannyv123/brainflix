@@ -22,7 +22,7 @@ function App() {
             {/* Note: videoSource just a placeholder; will not work until api added */}
             <CurrentVideo currentVideo={currentVideo} />
             <CurrentVideoDetails currentVideo={currentVideo} />
-            <Comments />
+            <Comments currentVideo={currentVideo} />
             <NextVideos currentVideo={currentVideo} handleVideoClick={handleVideoClick} />
         </div>
     );
