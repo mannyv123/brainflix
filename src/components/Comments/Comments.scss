@@ -1,0 +1,49 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.comments {
+    @include outside-padding;
+
+    &__count {
+        font-size: $fs-sub-header-mobile;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    &__form-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    &__avatar {
+        min-width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        background-image: url("../../assets/images/Mohan-muruge.jpg");
+        background-position: top 50% right 75%;
+        background-size: cover;
+        margin-top: 1rem;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    &__label {
+        text-transform: uppercase;
+        font-size: $fs-section-header-mobile;
+        color: $seconday-text-color;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+    }
+
+    &__input {
+        min-height: 6rem;
+        resize: none;
+        margin-bottom: 1rem;
+        font-family: $primary-font;
+    }
+}

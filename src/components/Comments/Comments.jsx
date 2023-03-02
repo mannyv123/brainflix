@@ -7,13 +7,20 @@ function Comments(props) {
     return (
         <section className="comments">
             <p className="comments__count">{`${commentCount} ${
-                commentCount > 1 ? "comments" : "comment"
+                commentCount > 1 ? "Comments" : "Comment"
             }`}</p>
             <div className="comments__form-container">
-                <img src="" alt="" className="comments__avatar" />
+                <div className="comments__avatar"></div>
                 <form action="" className="comments__form">
-                    <label htmlFor="comment">Join the Conversation</label>
-                    <textarea name="comment" id="comment" className="comments__input"></textarea>
+                    <label htmlFor="comment" className="comments__label">
+                        Join the Conversation
+                    </label>
+                    <textarea
+                        name="comment"
+                        id="comment"
+                        className="comments__input"
+                        placeholder="Add a new comment"
+                    ></textarea>
                     <button type="submit">Comment</button>
                 </form>
             </div>
