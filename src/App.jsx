@@ -22,17 +22,9 @@ function App() {
         <div className="App">
             <Header />
             {/* Note: videoSource just a placeholder; will not work until api added */}
-            <CurrentVideo thumbnail={currentVideo.image} videoSource={currentVideo.video} />
-            <CurrentVideoDetails
-                title={currentVideo.title}
-                channel={currentVideo.channel}
-                timestamp={currentVideo.timestamp}
-                views={currentVideo.views}
-                likes={currentVideo.likes}
-                description={currentVideo.description}
-            />
+            <CurrentVideo currentVideo={currentVideo} />
+            <CurrentVideoDetails currentVideo={currentVideo} />
             <Comments />
-            {/* <NextVideos videos={videos} handleVideoClick={handleVideoClick} /> */}
             <NextVideos handleVideoClick={handleVideoClick} />
         </div>
     );

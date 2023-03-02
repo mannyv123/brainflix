@@ -2,7 +2,12 @@ import "./CurrentVideo.scss";
 
 function CurrentVideo(props) {
     return (
-        <video className="current-video" controls poster={props.thumbnail} src={props.videoSource}></video>
+        <video
+            className="current-video"
+            controls
+            poster={props.currentVideo.image}
+            src={props.currentVideo.video}
+        ></video>
     );
 }
 

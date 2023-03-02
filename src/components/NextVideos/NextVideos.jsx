@@ -16,8 +16,6 @@ function NextVideos(props) {
                             thumbnail={video.image}
                             title={video.title}
                             channel={video.channel}
-                            // onClick={() => props.handleVideoClick(video.id)}
-                            // onClick={() => console.log(video.id)}
                             handleVideoClick={props.handleVideoClick}
                         />
                     );
