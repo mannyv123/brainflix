@@ -1,16 +1,22 @@
+import { useState } from "react";
 import "./App.scss";
+import videoDetails from "./data/video-details.json";
+import Comments from "./components/Comments/Comments";
 import CurrentVideo from "./components/CurrentVideo/CurrentVideo";
 import CurrentVideoDetails from "./components/CurrentVideoDetails/CurrentVideoDetails";
 import Header from "./components/Header/Header";
 import NextVideos from "./components/NextVideos/NextVideos";
 
-// Temp Data
-const tempDataArray = require("./data/video-details.json");
-const tempDataArrayVidList = require("./data/videos.json");
-
 function App() {
-    //temp current video
-    const currentVideo = tempDataArray[0];
+    const [videos, setVideos] = useState(videoDetails);
+    const [currentVideo, setCurrentVideo] = useState(videoDetails[0]);
+
+    const handleVideoClick = (id) => {
+        // console.log("clicked", id);
+        const clickedVideo = videos.find((video) => video.id === id);
+        // console.log(clickedVideo);
+        setCurrentVideo(clickedVideo);
+    };
 
     return (
         <div className="App">
@@ -25,7 +31,9 @@ function App() {
                 likes={currentVideo.likes}
                 description={currentVideo.description}
             />
-            <NextVideos videos={tempDataArrayVidList} />
+            <Comments />
+            {/* <NextVideos videos={videos} handleVideoClick={handleVideoClick} /> */}
+            <NextVideos handleVideoClick={handleVideoClick} />
         </div>
     );
 }

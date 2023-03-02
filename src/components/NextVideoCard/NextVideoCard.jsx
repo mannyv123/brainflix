@@ -2,7 +2,11 @@ import "./NextVideoCard.scss";
 
 function NextVideoCard(props) {
     return (
-        <li className="next-video__item">
+        <li
+            className="next-video__item"
+            onClick={() => props.handleVideoClick(props.id)}
+            // onClick={() => console.log(props)}
+        >
             <div className="next-video__image-container">
                 <img src={props.thumbnail} alt="next video thumbnail" className="next-video__thumbnail" />
             </div>
