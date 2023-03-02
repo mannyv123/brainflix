@@ -8,13 +8,11 @@ import Header from "./components/Header/Header";
 import NextVideos from "./components/NextVideos/NextVideos";
 
 function App() {
-    const [videos, setVideos] = useState(videoDetails);
+    const [videos] = useState(videoDetails);
     const [currentVideo, setCurrentVideo] = useState(videoDetails[0]);
 
     const handleVideoClick = (id) => {
-        // console.log("clicked", id);
         const clickedVideo = videos.find((video) => video.id === id);
-        // console.log(clickedVideo);
         setCurrentVideo(clickedVideo);
     };
 
@@ -25,7 +23,7 @@ function App() {
             <CurrentVideo currentVideo={currentVideo} />
             <CurrentVideoDetails currentVideo={currentVideo} />
             <Comments />
-            <NextVideos handleVideoClick={handleVideoClick} />
+            <NextVideos currentVideo={currentVideo} handleVideoClick={handleVideoClick} />
         </div>
     );
 }
