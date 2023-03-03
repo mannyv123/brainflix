@@ -6,6 +6,8 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 0.0625rem solid $outline-color;
 
     &__avatar {
         width: 2.25rem;
@@ -25,10 +27,16 @@
 
     &__name {
         width: 50%;
+        font-weight: bold;
     }
 
     &__timestamp {
         width: 50%;
         text-align: right;
+        color: $seconday-text-color;
+    }
+
+    &__text {
+        margin-top: 1rem;
     }
 }

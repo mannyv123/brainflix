@@ -1,9 +1,10 @@
 import "./CurrentVideoDetails.scss";
+import timeAgo from "../../utils/timeAgo";
 import likesIcon from "../../assets/icons/likes.svg";
 import viewsIcon from "../../assets/icons/views.svg";
 
 function CurrentVideoDetails(props) {
-    const formattedDate = new Date(props.currentVideo.timestamp).toLocaleDateString();
+    const timeSincePost = timeAgo(new Date(Date.now()), props.currentVideo.timestamp);
 
     return (
         <section className="video">
@@ -11,7 +12,7 @@ function CurrentVideoDetails(props) {
             <div className="video__details">
                 <div className="video__post-info">
                     <p className="video__channel">By {props.currentVideo.channel}</p>
-                    <p className="video__timestamp">{formattedDate}</p>
+                    <p className="video__timestamp">{`Posted ${timeSincePost}`}</p>
                 </div>
                 <div className="video__analytics">
                     <div className="video__views">
