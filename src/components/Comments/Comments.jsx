@@ -23,7 +23,7 @@ function Comments(props) {
                         placeholder="Add a new comment"
                     ></textarea>
                     <button className="button button__comment" type="submit">
-                        <img src={commentIcon} alt="upload video icon" className="button__comment-icon" />
+                        <img src={commentIcon} alt="comment icon" className="button__comment-icon" />
                         Comment
                         <div className="button__comment-icon button--hidden"></div>
                     </button>
