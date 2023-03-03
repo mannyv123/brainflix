@@ -28,7 +28,7 @@ function Header() {
                     <a className="button button__upload" href="#">
                         <img src={uploadIcon} alt="upload video icon" className="button__upload-icon" />
                         Upload
-                        <div className="button__upload-icon button__upload-icon--hidden"></div>
+                        <div className="button__upload-icon button--hidden"></div>
                     </a>
                 </div>
             </nav>

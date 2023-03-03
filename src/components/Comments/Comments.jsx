@@ -1,5 +1,6 @@
 import CommentCard from "../CommentCard/CommentCard";
 import "./Comments.scss";
+import commentIcon from "../../assets/icons/add_comment.svg";
 
 function Comments(props) {
     const commentCount = props.currentVideo.comments.length;
@@ -21,7 +22,11 @@ function Comments(props) {
                         className="comments__input"
                         placeholder="Add a new comment"
                     ></textarea>
-                    <button type="submit">Comment</button>
+                    <button className="button button__comment" type="submit">
+                        <img src={commentIcon} alt="upload video icon" className="button__comment-icon" />
+                        Comment
+                        <div className="button__comment-icon button--hidden"></div>
+                    </button>
                 </form>
             </div>
             <ul className="comments__list">

@@ -41,9 +41,23 @@
     }
 
     &__input {
-        min-height: 6rem;
         resize: none;
         margin-bottom: 1rem;
         font-family: $primary-font;
+        padding: 0.75rem;
+        background-color: $alternative-bg-color;
+        border-radius: 0.25rem;
+        border: 0.0625rem solid $outline-color;
+        font-size: 0.75rem;
+        min-height: 6rem;
+
+        &::placeholder {
+            color: $primary-text-color;
+        }
+
+        &:focus {
+            border-color: $alternative-bg-color;
+            outline: 0.125rem solid $outline-color-active;
+        }
     }
 }
