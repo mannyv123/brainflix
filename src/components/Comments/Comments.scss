@@ -60,4 +60,11 @@
             outline: 0.125rem solid $outline-color-active;
         }
     }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
