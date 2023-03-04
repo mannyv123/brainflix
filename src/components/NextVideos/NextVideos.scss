@@ -3,10 +3,10 @@
 
 .next-video {
     @include outside-padding;
-    padding-top: 0;
+    padding-top: 0.25rem;
 
     &__header {
-        margin-bottom: 1rem;
+        margin-bottom: 1.25rem;
         text-transform: uppercase;
         font-size: $fs-section-header-mobile;
         color: $seconday-text-color;
