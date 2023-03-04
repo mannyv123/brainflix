@@ -9,6 +9,10 @@
     padding: 0.75rem 0;
     border-bottom: 0.0625rem solid $outline-color;
 
+    @include tablet {
+        padding: 1.5rem 0;
+    }
+
     &__avatar {
         width: 2.25rem;
         height: 2.25rem;
@@ -16,6 +20,11 @@
         background-color: $outline-color;
         // background-position: top 50% right 75%;
         // background-size: cover;
+
+        @include tablet {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
     }
 
     &__content-container {
@@ -23,6 +32,11 @@
         display: flex;
         flex-wrap: wrap;
         flex: 1;
+
+        @include tablet {
+            font-size: $fs-body-tablet;
+            line-height: 1.375rem;
+        }
     }
 
     &__name {
@@ -38,5 +52,9 @@
 
     &__text {
         margin-top: 0.75rem;
+
+        @include tablet {
+            margin-top: 0.25rem;
+        }
     }
 }
