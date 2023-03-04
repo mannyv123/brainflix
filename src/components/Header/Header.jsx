@@ -21,11 +21,13 @@ function Header() {
                             className="nav__search-input"
                         />
                     </div>
-                    <a className="button button__upload button__upload--tablet" href="#">
+                    <a className="button button__upload--tablet" href="#">
+                        <img src={uploadIcon} alt="upload video icon" className="button__upload-icon" />
                         Upload
+                        <div className="button__upload-icon button--hidden"></div>
                     </a>
                     <div className="nav__avatar"></div>
-                    <a className="button button__upload" href="#">
+                    <a className="button button__upload--mobile" href="#">
                         <img src={uploadIcon} alt="upload video icon" className="button__upload-icon" />
                         Upload
                         <div className="button__upload-icon button--hidden"></div>

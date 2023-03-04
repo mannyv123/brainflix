@@ -8,11 +8,22 @@
     align-items: center;
     gap: 1rem;
 
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+    }
+
     &__container {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+
+        @include tablet {
+            justify-content: flex-end;
+            gap: 1.5rem;
+        }
     }
 
     &__search {
@@ -23,16 +34,25 @@
         padding: 0.5rem;
         display: flex;
         gap: 0.5rem;
+
+        @include tablet {
+            width: 15rem;
+            height: 2.5rem;
+            flex: none;
+        }
     }
 
-    // &__search-icon {
-    //
-    // }
+    &__search-icon {
+        align-self: flex-start;
+    }
 
     &__search-input {
         height: 100%;
         flex: 1;
         border: none;
+
+        @include tablet {
+        }
     }
 
     &__avatar {
@@ -42,5 +62,10 @@
         background-image: url("../../assets/images/Mohan-muruge.jpg");
         background-position: top 50% right 75%;
         background-size: cover;
+
+        @include tablet {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
     }
 }
