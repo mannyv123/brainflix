@@ -1,4 +1,5 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .next-video {
     &__item {
@@ -6,11 +7,16 @@
         display: flex;
         // align-items: center;
         // gap: 1rem;
+
+        @include tablet {
+            width: 43%;
+        }
     }
 
-    // &__image-container {
-
-    // }
+    &__image-container {
+        background-color: $outline-color;
+        border-radius: 0.25rem;
+    }
 
     &__thumbnail {
         // width: 100%;
@@ -21,6 +27,11 @@
         object-fit: cover;
         object-position: center;
         border-radius: 0.25rem;
+
+        @include tablet {
+            width: 7rem;
+            height: 4.092rem;
+        }
     }
 
     &__details {
@@ -30,6 +41,10 @@
         flex-direction: column;
         // gap: 0.5rem;
         justify-content: space-between;
+
+        @include tablet {
+            font-size: $fs-body-tablet;
+        }
     }
 
     &__title {
