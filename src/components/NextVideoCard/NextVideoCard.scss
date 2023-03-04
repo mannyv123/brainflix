@@ -4,8 +4,8 @@
     &__item {
         width: 100%;
         display: flex;
-        align-items: center;
-        gap: 1rem;
+        // align-items: center;
+        // gap: 1rem;
     }
 
     // &__image-container {
@@ -24,10 +24,15 @@
     }
 
     &__details {
+        margin-left: 1rem;
         font-size: $fs-body-mobile;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        // justify-content: space-between;
+        // gap: 0.5rem;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-weight: bold;
     }
 }

@@ -1,6 +1,11 @@
 import "./NextVideoCard.scss";
 
 function NextVideoCard(props) {
+    // const words = props.title.split(" ");
+    // console.log(words.length);
+    // if (words.length > 7) {
+    //     console.log(words.slice(0, 8));
+    // }
     return (
         <li className="next-video__item" onClick={() => props.handleVideoClick(props.id)}>
             <div className="next-video__image-container">
