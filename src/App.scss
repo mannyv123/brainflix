@@ -69,9 +69,19 @@ body {
         border: none;
         height: 2.3rem;
         margin-bottom: 1rem;
+
+        @include tablet {
+            width: 9.375rem;
+            margin-left: 1.5rem;
+            height: 2.5rem;
+        }
     }
 
     &__comment-icon {
         width: 1.25rem;
+
+        @include tablet {
+            width: 1.1rem;
+        }
     }
 }
