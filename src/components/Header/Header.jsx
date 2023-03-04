@@ -7,8 +7,8 @@ function Header() {
     return (
         <header>
             <nav className="nav">
-                <a className="nav__logo" href="#">
-                    <img src={logo} alt="brainflix logo" />
+                <a href="#">
+                    <img className="nav__logo" src={logo} alt="brainflix logo" />
                 </a>
                 <div className="nav__container">
                     <div className="nav__search">

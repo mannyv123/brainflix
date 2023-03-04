@@ -24,6 +24,10 @@ body {
     font-size: $fs-labels-and-buttons;
     font-weight: bold;
 
+    &:hover {
+        background-color: $btn-hover-bg;
+    }
+
     &--hidden {
         visibility: hidden;
         height: 1.25rem;
