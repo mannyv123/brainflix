@@ -90,6 +90,7 @@ body {
         border: none;
         height: 2.3rem;
         margin-bottom: 1rem;
+        cursor: pointer;
 
         @include tablet {
             width: 9.375rem;
