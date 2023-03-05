@@ -11,11 +11,19 @@
         @include tablet {
             width: 43%;
         }
+
+        @include desktop {
+            width: 100%;
+        }
     }
 
     &__image-container {
         background-color: $outline-color;
         border-radius: 0.25rem;
+
+        @include desktop {
+            height: fit-content;
+        }
     }
 
     &__thumbnail {

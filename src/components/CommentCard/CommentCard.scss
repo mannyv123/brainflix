@@ -13,6 +13,15 @@
         padding: 1.5rem 0;
     }
 
+    @include desktop {
+        padding-left: 0.5rem;
+        gap: 2rem;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
     &__avatar {
         width: 2.25rem;
         height: 2.25rem;
@@ -36,6 +45,10 @@
         @include tablet {
             font-size: $fs-body-tablet;
             line-height: 1.375rem;
+        }
+
+        @include desktop {
+            padding-right: 1.5rem;
         }
     }
 

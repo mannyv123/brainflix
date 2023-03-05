@@ -13,8 +13,7 @@
     }
 
     @include desktop {
-        // width: 70%;
-        // order: 1;
+        padding-top: 1rem;
     }
 
     &__title {
@@ -69,6 +68,10 @@
             margin-right: 0;
             gap: 2rem;
         }
+
+        @include desktop {
+            padding-right: 1.5rem;
+        }
     }
 
     &__views {
@@ -88,6 +91,10 @@
         @include tablet {
             font-size: $fs-body-tablet;
             line-height: 1.375rem;
+        }
+
+        @include desktop {
+            padding-right: 1.5rem;
         }
     }
 }

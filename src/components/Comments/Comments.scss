@@ -26,6 +26,11 @@
         justify-content: space-between;
         gap: 1rem;
         border-bottom: 0.0625rem solid $outline-color;
+
+        @include desktop {
+            padding-left: 0.5rem;
+            gap: 2rem;
+        }
     }
 
     &__avatar {
@@ -52,6 +57,10 @@
         @include tablet {
             flex-direction: row;
             flex-wrap: wrap;
+        }
+
+        @include desktop {
+            padding-right: 1.5rem;
         }
     }
 
