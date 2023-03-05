@@ -7,7 +7,7 @@
     flex-direction: row;
     gap: 1rem;
     padding: 0.75rem 0;
-    border-bottom: 0.0625rem solid $outline-color;
+    border-bottom: $divider-and-outline;
 
     @include tablet {
         padding: 1.5rem 0;
@@ -23,17 +23,7 @@
     }
 
     &__avatar {
-        width: 2.25rem;
-        height: 2.25rem;
-        border-radius: 50%;
-        background-color: $outline-color;
-        // background-position: top 50% right 75%;
-        // background-size: cover;
-
-        @include tablet {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
+        @include avatar;
     }
 
     &__content-container {

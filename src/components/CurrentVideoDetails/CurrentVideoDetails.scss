@@ -32,8 +32,8 @@
     }
 
     &__details {
-        border-top: 0.0625rem solid $outline-color;
-        border-bottom: 0.0625rem solid $outline-color;
+        border-top: $divider-and-outline;
+        border-bottom: $divider-and-outline;
         display: flex;
         justify-content: space-between;
         font-size: $fs-sub-header-mobile;

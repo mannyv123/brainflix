@@ -12,11 +12,14 @@ $alternative-text-color: #ffffff;
 $primary-bg-color: #ffffff;
 $seconday-bg-color: #0095ff;
 $alternative-bg-color: #fafafa;
+$tertiary-bg-color: #000000;
 
 $outline-color: #e1e1e1;
 $outline-color-active: #0095ff;
 
 $btn-hover-bg: #0065ad;
+
+$divider-and-outline: 0.0625rem solid $outline-color;
 
 /* Mobile Specific Styling */
 //Note: fs = "Font Size"

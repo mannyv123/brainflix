@@ -39,7 +39,7 @@
 
     &__search {
         height: 2.25rem;
-        border: 0.0625rem solid $outline-color;
+        border: $divider-and-outline;
         border-radius: 0.25rem;
         flex: 1;
         padding: 0.5rem;
@@ -63,36 +63,21 @@
     }
 
     &__search-input {
+        @include input;
         height: 100%;
         flex: 1;
         border: none;
-        font-family: $primary-font;
-        font-size: 0.75rem;
-
-        &::placeholder {
-            color: $primary-text-color;
-        }
 
         &:focus {
             outline: none;
         }
-
-        // @include tablet {
-        // }
     }
 
     &__avatar {
-        width: 2.25rem;
-        height: 2.25rem;
-        border-radius: 50%;
+        @include avatar;
         background-image: url("../../assets/images/Mohan-muruge.jpg");
         background-position: top 50% right 75%;
         background-size: cover;
-
-        @include tablet {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
 
         @include desktop {
             margin-left: 0.5rem;

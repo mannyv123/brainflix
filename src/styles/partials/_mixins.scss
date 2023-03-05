@@ -22,3 +22,26 @@
         padding: 1rem 10.156%;
     }
 }
+
+/* Avatar Styling */
+@mixin avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: $outline-color;
+
+    @include tablet {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+/* Input Styling */
+@mixin input {
+    font-size: $fs-labels-and-buttons;
+    font-family: $primary-font;
+
+    &::placeholder {
+        color: $primary-text-color;
+    }
+}

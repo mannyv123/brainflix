@@ -31,9 +31,9 @@ body {
 }
 
 .button {
-    background-color: #0095ff;
+    background-color: $seconday-bg-color;
     border-radius: 0.25rem;
-    color: #ffffff;
+    color: $alternative-text-color;
     text-transform: uppercase;
     display: flex;
     justify-content: center;

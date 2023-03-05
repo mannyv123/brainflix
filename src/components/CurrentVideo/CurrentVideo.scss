@@ -4,7 +4,7 @@
 .current-video {
     width: 100%;
     height: 11.25rem;
-    background-color: black;
+    background-color: $tertiary-bg-color;
 
     @include tablet {
         height: 24.5rem;

@@ -4,13 +4,6 @@
 .comments {
     padding-top: 0;
 
-    @include desktop {
-        // display: flex;
-        // flex-direction: column;
-        // width: 70%;
-        // order: 2;
-    }
-
     &__count {
         font-size: $fs-sub-header-mobile;
         font-weight: bold;
@@ -25,7 +18,7 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
-        border-bottom: 0.0625rem solid $outline-color;
+        border-bottom: $divider-and-outline;
 
         @include desktop {
             padding-left: 0.5rem;
@@ -34,17 +27,13 @@
     }
 
     &__avatar {
-        min-width: 2.25rem;
-        height: 2.25rem;
-        border-radius: 50%;
+        @include avatar;
         background-image: url("../../assets/images/Mohan-muruge.jpg");
         background-position: top 50% right 75%;
         background-size: cover;
         margin-top: 1rem;
 
         @include tablet {
-            width: 2.5rem;
-            height: 2.5rem;
             margin-top: 1.15rem;
         }
     }
@@ -77,19 +66,14 @@
     }
 
     &__input {
+        @include input;
         resize: none;
         margin-bottom: 1rem;
-        font-family: $primary-font;
         padding: 0.75rem;
         background-color: $alternative-bg-color;
         border-radius: 0.25rem;
-        border: 0.0625rem solid $outline-color;
-        font-size: 0.75rem;
+        border: $divider-and-outline;
         height: 6rem;
-
-        &::placeholder {
-            color: $primary-text-color;
-        }
 
         &:focus {
             border-color: $alternative-bg-color;
