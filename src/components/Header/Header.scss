@@ -1,12 +1,19 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+.nav-header {
+    position: sticky;
+    top: -1px;
+    z-index: 1;
+}
+
 .nav {
     @include outside-padding;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    background-color: $primary-bg-color;
 
     @include tablet {
         flex-direction: row;

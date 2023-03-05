@@ -5,7 +5,7 @@ import uploadIcon from "../../assets/icons/upload.svg";
 
 function Header() {
     return (
-        <header>
+        <header className="nav-header">
             <nav className="nav">
                 <a href="#">
                     <img className="nav__logo" src={logo} alt="brainflix logo" />
