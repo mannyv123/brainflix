@@ -39,6 +39,11 @@
         display: flex;
         gap: 0.5rem;
 
+        &:focus-within {
+            border-color: $alternative-bg-color;
+            outline: 0.125rem solid $outline-color-active;
+        }
+
         @include tablet {
             width: 15rem;
             height: 2.5rem;
@@ -54,9 +59,19 @@
         height: 100%;
         flex: 1;
         border: none;
+        font-family: $primary-font;
+        font-size: 0.75rem;
 
-        @include tablet {
+        &::placeholder {
+            color: $primary-text-color;
         }
+
+        &:focus {
+            outline: none;
+        }
+
+        // @include tablet {
+        // }
     }
 
     &__avatar {
