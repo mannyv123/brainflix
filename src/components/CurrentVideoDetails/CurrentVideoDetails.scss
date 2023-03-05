@@ -15,6 +15,7 @@
 
     @include desktop {
         padding-top: 1rem;
+        padding-bottom: 3rem;
     }
 
     &__title {
@@ -23,6 +24,10 @@
 
         @include tablet {
             font-size: $fs-page-header-tablet;
+        }
+
+        @include desktop {
+            font-size: $fs-page-header-desktop;
         }
     }
 

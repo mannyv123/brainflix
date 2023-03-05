@@ -16,7 +16,7 @@
         // width: 30%;
         // order: 1;
         padding-left: 1.25rem;
-        padding-top: 2rem;
+        padding-top: 2.25rem;
         border-left: 0.0625rem solid $outline-color;
     }
 
@@ -29,6 +29,10 @@
 
         @include tablet {
             margin-bottom: 1.75rem;
+        }
+
+        @include desktop {
+            margin-bottom: 1.25rem;
         }
     }
 
