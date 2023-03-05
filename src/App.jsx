@@ -19,11 +19,17 @@ function App() {
     return (
         <div className="App">
             <Header />
-            {/* Note: videoSource just a placeholder; will not work until api added */}
-            <CurrentVideo currentVideo={currentVideo} />
-            <CurrentVideoDetails currentVideo={currentVideo} />
-            <Comments currentVideo={currentVideo} />
-            <NextVideos currentVideo={currentVideo} handleVideoClick={handleVideoClick} />
+            <main>
+                {/* Note: videoSource just a placeholder; will not work until api added */}
+                <CurrentVideo currentVideo={currentVideo} />
+                <section className="content">
+                    <section className="content__current-video">
+                        <CurrentVideoDetails currentVideo={currentVideo} />
+                        <Comments currentVideo={currentVideo} />
+                    </section>
+                    <NextVideos currentVideo={currentVideo} handleVideoClick={handleVideoClick} />
+                </section>
+            </main>
         </div>
     );
 }

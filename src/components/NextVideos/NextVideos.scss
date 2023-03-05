@@ -10,6 +10,15 @@
         padding-bottom: 2.25rem;
     }
 
+    @include desktop {
+        // display: flex;
+        // flex-direction: column;
+        // width: 30%;
+        // order: 1;
+        padding-left: 2rem;
+        border-left: 0.0625rem solid $outline-color;
+    }
+
     &__header {
         margin-bottom: 1.25rem;
         text-transform: uppercase;

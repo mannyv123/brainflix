@@ -12,6 +12,23 @@ body {
     color: $primary-text-color;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+        flex-direction: row;
+    }
+
+    &__current-video {
+        @include outside-padding;
+
+        @include desktop {
+            padding-right: 0;
+        }
+    }
+}
+
 .button {
     background-color: #0095ff;
     border-radius: 0.25rem;
