@@ -1,6 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+/* Styling for the details below the currently selected/playing video */
 .video {
     display: flex;
     flex-direction: column;

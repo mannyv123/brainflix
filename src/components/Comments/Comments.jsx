@@ -2,6 +2,8 @@ import CommentCard from "../CommentCard/CommentCard";
 import "./Comments.scss";
 import commentIcon from "../../assets/icons/add_comment.svg";
 
+/* Displays a form to submit comments for the currently playing/selected video; 
+renders any existing comments for the current video using CommentCard component */
 function Comments(props) {
     const commentCount = props.currentVideo.comments.length;
 

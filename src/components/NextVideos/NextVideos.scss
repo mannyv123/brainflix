@@ -1,6 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+/* Styling for Next Videos Section */
 .next-video {
     @include outside-padding;
     padding-top: 0.25rem;

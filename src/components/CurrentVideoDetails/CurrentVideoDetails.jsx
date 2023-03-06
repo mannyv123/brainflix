@@ -3,6 +3,7 @@ import timeAgo from "../../utils/timeAgo";
 import likesIcon from "../../assets/icons/likes.svg";
 import viewsIcon from "../../assets/icons/views.svg";
 
+/* Displays details of the currently selected video */
 function CurrentVideoDetails(props) {
     const timeSincePost = timeAgo(new Date(Date.now()), props.currentVideo.timestamp);
 

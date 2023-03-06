@@ -1,6 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+/* Styling for each comment related to currently playing/selected video */
 .comment {
     width: 100%;
     display: flex;

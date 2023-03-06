@@ -1,6 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+/* Styling for the videos in the next videos list */
 .next-video {
     &__item {
         width: 100%;

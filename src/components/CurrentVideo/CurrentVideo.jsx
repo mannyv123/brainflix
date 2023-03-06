@@ -1,5 +1,6 @@
 import "./CurrentVideo.scss";
 
+/* Main/Hero Video */
 function CurrentVideo(props) {
     return (
         <div className="current-video">
