@@ -18,4 +18,21 @@
             font-size: $fs-page-header-desktop;
         }
     }
+
+    &__form {
+        margin-top: 1.5rem;
+    }
+
+    &__thumbnail-label {
+        text-transform: uppercase;
+        font-size: $fs-section-header-mobile;
+        color: $seconday-text-color;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+    }
+
+    &__thumbnail-img {
+        width: 100%;
+        border-radius: 0.25rem;
+    }
 }
