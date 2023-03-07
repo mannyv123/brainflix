@@ -40,5 +40,14 @@
 
     &__inputs-container {
         margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__input {
+        text-transform: uppercase;
+        font-size: $fs-section-header-mobile;
+        color: $seconday-text-color;
+        font-weight: bold;
     }
 }
