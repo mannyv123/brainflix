@@ -46,6 +46,7 @@
         padding: 0.5rem;
         display: flex;
         gap: 0.5rem;
+        background-color: $alternative-bg-color;
 
         &:focus-within {
             border-color: $alternative-bg-color;
@@ -68,6 +69,7 @@
         height: 100%;
         flex: 1;
         border: none;
+        background-color: $alternative-bg-color;
 
         &:focus {
             outline: none;

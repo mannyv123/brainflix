@@ -1,0 +1,20 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+        flex-direction: row;
+    }
+
+    &__current-video {
+        @include outside-padding;
+
+        @include desktop {
+            padding-right: 0;
+            width: 95%;
+        }
+    }
+}

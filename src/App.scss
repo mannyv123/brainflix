@@ -12,24 +12,6 @@ body {
     color: $primary-text-color;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-
-    @include desktop {
-        flex-direction: row;
-    }
-
-    &__current-video {
-        @include outside-padding;
-
-        @include desktop {
-            padding-right: 0;
-            width: 95%;
-        }
-    }
-}
-
 .button {
     background-color: $seconday-bg-color;
     border-radius: 0.25rem;

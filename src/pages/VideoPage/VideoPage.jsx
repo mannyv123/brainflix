@@ -4,7 +4,7 @@ import Comments from "../../components/Comments/Comments";
 import CurrentVideo from "../../components/CurrentVideo/CurrentVideo";
 import CurrentVideoDetails from "../../components/CurrentVideoDetails/CurrentVideoDetails";
 import NextVideos from "../../components/NextVideos/NextVideos";
-import "./VideoPage";
+import "./VideoPage.scss";
 
 function VideoPage() {
     const [videos] = useState(videoDetails);

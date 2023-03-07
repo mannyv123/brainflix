@@ -14,6 +14,7 @@ function Comments(props) {
             }`}</p>
             <div className="comments__form-container">
                 <div className="comments__avatar"></div>
+                {/* no action in form as per sprint-2 requirements, functionality of the form not required */}
                 <form action="" className="comments__form">
                     <label htmlFor="comment" className="comments__label">
                         Join the Conversation

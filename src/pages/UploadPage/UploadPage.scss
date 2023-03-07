@@ -1,0 +1,21 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.upload {
+    @include outside-padding;
+    border-top: $divider-and-outline;
+
+    &__page-title {
+        font-weight: bold;
+        font-size: $fs-page-header-mobile;
+        padding-top: 0.5rem;
+
+        @include tablet {
+            font-size: $fs-page-header-tablet;
+        }
+
+        @include desktop {
+            font-size: $fs-page-header-desktop;
+        }
+    }
+}
