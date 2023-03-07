@@ -5,6 +5,11 @@ import commentIcon from "../../assets/icons/add_comment.svg";
 /* Displays a form to submit comments for the currently playing/selected video; 
 renders any existing comments for the current video using CommentCard component */
 function Comments(props) {
+    if (!props.currentVideo.comments) {
+        console.log("im returning");
+        return;
+    }
+
     const commentCount = props.currentVideo.comments.length;
 
     return (

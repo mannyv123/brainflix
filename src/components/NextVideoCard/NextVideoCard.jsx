@@ -3,7 +3,7 @@ import "./NextVideoCard.scss";
 /* Component to be used for each video in next video list */
 function NextVideoCard(props) {
     return (
-        <li className="next-video__item" onClick={() => props.handleVideoClick(props.id)}>
+        <li className="next-video__item">
             <div className="next-video__image-container">
                 <img
                     src={props.thumbnail}

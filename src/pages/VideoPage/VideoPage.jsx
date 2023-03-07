@@ -14,6 +14,7 @@ const apiKey = "d28fb146-1574-4fbd-a40b-9046fc985897";
 function VideoPage() {
     const [videos, setVideos] = useState([]);
     const [currentVideo, setCurrentVideo] = useState({});
+    // const [comments, setComments] = useState([]);
     const { videoId } = useParams();
 
     // const handleVideoClick = (id) => {
@@ -69,7 +70,7 @@ function VideoPage() {
             <section className="content">
                 <section className="content__current-video">
                     <CurrentVideoDetails currentVideo={currentVideo} />
-                    {/* <Comments currentVideo={currentVideo} /> */}
+                    <Comments currentVideo={currentVideo} />
                 </section>
                 {/* <NextVideos videos={videos} currentVideo={currentVideo} handleVideoClick={handleVideoClick} /> */}
                 <NextVideos videos={videos} />
