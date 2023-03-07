@@ -40,6 +40,9 @@ function UploadPage() {
                         <div className="button__publish-icon button--hidden"></div>
                     </button>
                 </form>
+                <div className="upload__cancel">
+                    <p>Cancel</p>
+                </div>
             </section>
         </main>
     );
