@@ -23,7 +23,21 @@ function VideoPage() {
 
     useEffect(() => {
         getVideoList();
+        console.log("I ran getVideoList on load");
     }, []);
+
+    useEffect(() => {
+        if (videoId) {
+            getCurrentVideo(videoId);
+            console.log("I ran getCurrentVideo when videoId is true");
+        } else if (videos.length) {
+            getCurrentVideo(videos[0].id);
+            console.log(
+                "I ran getCurrentVideo when video Id is false but videos has a length: ",
+                videos[0].id
+            );
+        }
+    }, [videoId, videos]);
 
     function getVideoList() {
         axios
@@ -36,18 +50,31 @@ function VideoPage() {
             });
     }
 
+    function getCurrentVideo(videoId) {
+        axios
+            .get(`${apiUrl}/videos/${videoId}?api_key=${apiKey}`)
+            .then((response) => {
+                setCurrentVideo(response.data);
+                console.log("I got the current video", response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     return (
         <main>
             {/* Note: videoSource just a placeholder; will not work until api added */}
-            {/* <CurrentVideo currentVideo={currentVideo} /> */}
+            <CurrentVideo currentVideo={currentVideo} />
             <section className="content">
                 <section className="content__current-video">
-                    {/* <CurrentVideoDetails currentVideo={currentVideo} /> */}
+                    <CurrentVideoDetails currentVideo={currentVideo} />
                     {/* <Comments currentVideo={currentVideo} /> */}
                 </section>
                 {/* <NextVideos videos={videos} currentVideo={currentVideo} handleVideoClick={handleVideoClick} /> */}
                 <NextVideos videos={videos} />
-                {console.log(videos)}
+                {console.log("Here are the videos", videos)}
+                {console.log("This is the current video ", currentVideo)}
             </section>
         </main>
     );

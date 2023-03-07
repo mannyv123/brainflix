@@ -3,7 +3,6 @@ import timeAgo from "../../utils/timeAgo";
 
 /* Component to be used for each comment for currently selected/playing video */
 function CommentCard(props) {
-    const formattedDate = new Date(props.timestamp).toLocaleDateString();
     const timeSincePost = timeAgo(new Date(Date.now()), props.timestamp);
     return (
         <li className="comment">

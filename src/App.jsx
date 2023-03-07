@@ -12,6 +12,7 @@ function App() {
                 <Header />
                 <Routes>
                     <Route path="/" element={<VideoPage />} />
+                    <Route path="/:videoId" element={<VideoPage />} />
                     <Route path="/upload" element={<UploadPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
