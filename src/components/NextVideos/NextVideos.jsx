@@ -12,7 +12,7 @@ function NextVideos(props) {
             <h3 className="next-video__header">Next Videos</h3>
             <ul className="next-video__list">
                 {props.videos
-                    // .filter((video) => video.id !== props.currentVideo.id)
+                    .filter((video) => video.id !== props.currentVideoId)
                     .map((video) => {
                         return (
                             <Link to={`/${video.id}`}>

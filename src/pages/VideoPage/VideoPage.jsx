@@ -73,7 +73,7 @@ function VideoPage() {
                     <Comments currentVideo={currentVideo} />
                 </section>
                 {/* <NextVideos videos={videos} currentVideo={currentVideo} handleVideoClick={handleVideoClick} /> */}
-                <NextVideos videos={videos} />
+                <NextVideos videos={videos} currentVideoId={currentVideo.id} />
                 {console.log("Here are the videos", videos)}
                 {console.log("This is the current video ", currentVideo)}
             </section>
