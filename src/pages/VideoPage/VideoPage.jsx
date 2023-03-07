@@ -6,6 +6,8 @@ import CurrentVideoDetails from "../../components/CurrentVideoDetails/CurrentVid
 import NextVideos from "../../components/NextVideos/NextVideos";
 import "./VideoPage.scss";
 
+const apiUrl = "https://project-2-api.herokuapp.com";
+
 function VideoPage() {
     const [videos] = useState(videoDetails);
     const [currentVideo, setCurrentVideo] = useState(videoDetails[0]);

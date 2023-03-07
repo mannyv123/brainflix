@@ -1,8 +1,44 @@
+import { Navigate } from "react-router-dom";
+import { useState } from "react";
 import "./UploadPage.scss";
 import uploadPreview from "../../assets/images/Upload-video-preview.jpg";
 import publishIcon from "../../assets/icons/publish.svg";
 
 function UploadPage() {
+    const [upload, setUpload] = useState(
+        <button type="" className="button button__publish">
+            <img src={publishIcon} alt="publish icon" className="button__publish-icon" />
+            Publish
+            <div className="button__publish-icon button--hidden"></div>
+        </button>
+    );
+
+    const handleUploadClick = () => {
+        // setUpload(`Thank you for your upload. Redirecting you to the main page...`);
+        // console.log(setTimeout(() => <Navigate to="/" />, 5000));
+
+        setUpload(() => {
+            // return (
+            //     <div>
+            //         <p>Redirecting</p>
+            //         {setTimeout(
+            //             () => (
+            //                 <Navigate to="/" />
+            //             ),
+            //             1000
+            //         )}
+            //     </div>
+            // );
+
+            return (
+                <div>
+                    {alert("Thank you for your upload!")}
+                    <Navigate to="/" />;
+                </div>
+            );
+        });
+    };
+
     return (
         <main>
             <section className="upload">
@@ -34,11 +70,7 @@ function UploadPage() {
                             placeholder="Add a description to your video"
                         ></textarea>
                     </div>
-                    <button type="submit" className="button button__publish">
-                        <img src={publishIcon} alt="publish icon" className="button__publish-icon" />
-                        Publish
-                        <div className="button__publish-icon button--hidden"></div>
-                    </button>
+                    <div onClick={handleUploadClick}>{upload}</div>
                 </form>
                 <div className="upload__cancel">
                     <p>Cancel</p>
