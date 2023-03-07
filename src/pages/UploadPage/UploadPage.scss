@@ -44,10 +44,37 @@
         flex-direction: column;
     }
 
-    &__input {
+    &__input-label {
         text-transform: uppercase;
         font-size: $fs-section-header-mobile;
         color: $seconday-text-color;
         font-weight: bold;
+        margin-bottom: 0.25rem;
+    }
+
+    &__title-input {
+        @include input;
+        padding: 0.75rem;
+        height: 2.25rem;
+        background-color: $alternative-bg-color;
+        border-radius: 0.25rem;
+        border: $divider-and-outline;
+        color: $primary-text-color;
+        min-width: 15rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    &__desc-input {
+        @include input;
+        padding: 0.75rem;
+        height: 6rem;
+        resize: none;
+        background-color: $alternative-bg-color;
+        border-radius: 0.25rem;
+        border: $divider-and-outline;
+        color: $primary-text-color;
+        min-width: 15rem;
+        width: 100%;
     }
 }

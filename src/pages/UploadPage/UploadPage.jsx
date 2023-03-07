@@ -17,19 +17,21 @@ function UploadPage() {
                         />
                     </div>
                     <div className="upload__inputs-container">
-                        <label className="upload__input" htmlFor="videoTitle">
+                        <label className="upload__input-label" htmlFor="videoTitle">
                             Title Your Video
                         </label>
                         <input
+                            className="upload__title-input"
                             type="text"
                             name="videoTitle"
                             id="videoTitle"
                             placeholder="Add a title to your video"
                         />
-                        <label className="upload__input" htmlFor="videoDesc">
+                        <label className="upload__input-label" htmlFor="videoDesc">
                             Add a Video Description
                         </label>
                         <textarea
+                            className="upload__desc-input"
                             name="videoDesc"
                             id="videoDesc"
                             placeholder="Add a description to your video"
