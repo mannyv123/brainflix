@@ -1,5 +1,6 @@
 import "./UploadPage.scss";
 import uploadPreview from "../../assets/images/Upload-video-preview.jpg";
+import publishIcon from "../../assets/icons/publish.svg";
 
 function UploadPage() {
     return (
@@ -10,11 +11,7 @@ function UploadPage() {
                 <form action="" className="upload__form">
                     <div className="upload__thumbnail-container">
                         <h3 className="upload__thumbnail-label">Video Thumbnail</h3>
-                        <img
-                            className="upload__thumbnail-img"
-                            src={uploadPreview}
-                            alt="upload preview image"
-                        />
+                        <img className="upload__thumbnail-img" src={uploadPreview} alt="upload preview" />
                     </div>
                     <div className="upload__inputs-container">
                         <label className="upload__input-label" htmlFor="videoTitle">
@@ -37,6 +34,11 @@ function UploadPage() {
                             placeholder="Add a description to your video"
                         ></textarea>
                     </div>
+                    <button type="submit" className="button button__publish">
+                        <img src={publishIcon} alt="publish icon" className="button__publish-icon" />
+                        Publish
+                        <div className="button__publish-icon button--hidden"></div>
+                    </button>
                 </form>
             </section>
         </main>

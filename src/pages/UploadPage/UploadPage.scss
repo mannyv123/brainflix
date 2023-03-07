@@ -54,6 +54,7 @@
 
     &__title-input {
         @include input;
+        font-size: 0.8125rem;
         padding: 0.75rem;
         height: 2.25rem;
         background-color: $alternative-bg-color;
@@ -67,8 +68,9 @@
 
     &__desc-input {
         @include input;
+        font-size: 0.8125rem;
         padding: 0.75rem;
-        height: 6rem;
+        height: 5.375rem;
         resize: none;
         background-color: $alternative-bg-color;
         border-radius: 0.25rem;
