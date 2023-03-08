@@ -81,13 +81,15 @@
     }
 
     &__cancel {
+        display: flex;
+        justify-content: center;
         color: $outline-color-active;
         font-weight: bold;
         text-transform: uppercase;
         font-size: $fs-labels-and-buttons;
-        text-align: center;
         width: 100%;
-        margin-top: 2.5rem;
         cursor: pointer;
+        margin-top: 2.5rem;
+        text-decoration: none;
     }
 }

@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { useState } from "react";
 import "./UploadPage.scss";
 import uploadPreview from "../../assets/images/Upload-video-preview.jpg";
@@ -72,9 +72,9 @@ function UploadPage() {
                     </div>
                     <div onClick={handleUploadClick}>{upload}</div>
                 </form>
-                <div className="upload__cancel">
+                <Link className="upload__cancel" to="/">
                     <p>Cancel</p>
-                </div>
+                </Link>
             </section>
         </main>
     );
