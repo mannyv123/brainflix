@@ -86,7 +86,7 @@ function UploadPage() {
                                 <div className="button__publish-icon button--hidden"></div>
                             </button>
                         ) : (
-                            "Loading"
+                            <p>Thank you for your upload. Redirecting you to the home page...</p>
                         )}
                         {console.log("whats happening")}
                     </div>
