@@ -42,6 +42,10 @@ function Comments(props) {
 
     const commentCount = props.currentVideo.comments.length;
 
+    props.currentVideo.comments.sort((firstComment, lastComment) => {
+        return lastComment.timestamp - firstComment.timestamp;
+    });
+
     return (
         <section className="comments">
             <p className="comments__count">{`${commentCount} ${
