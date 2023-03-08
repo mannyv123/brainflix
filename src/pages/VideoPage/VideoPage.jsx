@@ -74,7 +74,7 @@ function VideoPage() {
     return (
         <main>
             {/* Note: videoSource just a placeholder; will not work until api added */}
-            {/* Ternary operator that renders error msg if current video cannot be found */}
+            {/* Ternary operator used that renders error msg if current video cannot be found */}
             {foundVideo ? <CurrentVideo currentVideo={currentVideo} /> : "Video Not Found. Please Try Again"}
             <section className="content">
                 <section className="content__current-video">
