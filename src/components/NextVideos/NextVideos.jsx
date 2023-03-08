@@ -15,7 +15,7 @@ function NextVideos(props) {
                     .filter((video) => video.id !== props.currentVideoId)
                     .map((video) => {
                         return (
-                            <Link to={`/${video.id}`} key={video.id}>
+                            <Link to={`/videos/${video.id}`} key={video.id}>
                                 <NextVideoCard
                                     id={video.id}
                                     thumbnail={video.image}

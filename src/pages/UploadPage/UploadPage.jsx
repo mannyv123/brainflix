@@ -14,7 +14,7 @@ function UploadPage() {
             timerId.current = setTimeout(() => {
                 // setUpload(false); //this i need to change to navigate
                 navigate("/");
-            }, 5000);
+            }, 3000);
         }
         console.log(upload);
         return () => {
@@ -28,17 +28,6 @@ function UploadPage() {
 
         setUpload(true);
     };
-    // return (
-    //     <div>
-    //         <p>Redirecting</p>
-    //         {setTimeout(
-    //             () => (
-    //                 <Navigate to="/" />
-    //             ),
-    //             1000
-    //         )}
-    //     </div>
-    // );
 
     // return (
     //     <div>

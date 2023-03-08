@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 // import videoDetails from "../../data/video-details.json";
 import Comments from "../../components/Comments/Comments";
@@ -14,8 +14,10 @@ export const apiKey = "d28fb146-1574-4fbd-a40b-9046fc985897";
 function VideoPage() {
     const [videos, setVideos] = useState([]);
     const [currentVideo, setCurrentVideo] = useState({});
+    const [foundVideo, setFoundVideo] = useState(true);
     // const [comments, setComments] = useState([]);
     const { videoId } = useParams();
+    const navigate = useNavigate();
 
     // const handleVideoClick = (id) => {
     //     const clickedVideo = videos.find((video) => video.id === id);
@@ -29,8 +31,11 @@ function VideoPage() {
 
     useEffect(() => {
         if (videoId) {
+            // if (!videos.includes(videoId)) {
+            //     navigate("*");
+            // }
             getCurrentVideo(videoId);
-            console.log("I ran getCurrentVideo when videoId is true");
+            console.log("I ran getCurrentVideo when videoId is true and the id is ", videoId);
         } else if (videos.length) {
             getCurrentVideo(videos[0].id);
             console.log(
@@ -38,7 +43,7 @@ function VideoPage() {
                 videos[0].id
             );
         }
-    }, [videoId, videos]);
+    }, [videoId, videos, navigate]);
 
     function getVideoList() {
         axios
@@ -59,6 +64,9 @@ function VideoPage() {
                 console.log("I got the current video", response.data);
             })
             .catch((error) => {
+                //need to redirect to main page
+                setFoundVideo(false);
+                alert("not found");
                 console.error(error);
             });
     }
@@ -66,7 +74,7 @@ function VideoPage() {
     return (
         <main>
             {/* Note: videoSource just a placeholder; will not work until api added */}
-            <CurrentVideo currentVideo={currentVideo} />
+            {foundVideo ? <CurrentVideo currentVideo={currentVideo} /> : "Video Not Found. Please Try Again"}
             <section className="content">
                 <section className="content__current-video">
                     <CurrentVideoDetails currentVideo={currentVideo} />
