@@ -8,8 +8,8 @@ import CurrentVideoDetails from "../../components/CurrentVideoDetails/CurrentVid
 import NextVideos from "../../components/NextVideos/NextVideos";
 import "./VideoPage.scss";
 
-const apiUrl = "https://project-2-api.herokuapp.com";
-const apiKey = "d28fb146-1574-4fbd-a40b-9046fc985897";
+export const apiUrl = "https://project-2-api.herokuapp.com";
+export const apiKey = "d28fb146-1574-4fbd-a40b-9046fc985897";
 
 function VideoPage() {
     const [videos, setVideos] = useState([]);
@@ -70,7 +70,11 @@ function VideoPage() {
             <section className="content">
                 <section className="content__current-video">
                     <CurrentVideoDetails currentVideo={currentVideo} />
-                    <Comments currentVideo={currentVideo} />
+                    <Comments
+                        currentVideo={currentVideo}
+                        videoId={videoId}
+                        getCurrentVideo={getCurrentVideo}
+                    />
                 </section>
                 {/* <NextVideos videos={videos} currentVideo={currentVideo} handleVideoClick={handleVideoClick} /> */}
                 <NextVideos videos={videos} currentVideoId={currentVideo.id} />
