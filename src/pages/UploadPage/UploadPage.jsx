@@ -17,9 +17,6 @@ function UploadPage() {
             }, 3000);
         }
         console.log(upload);
-        return () => {
-            clearTimeout(timerId.current);
-        };
     }, [upload, navigate]);
 
     //Sets upload to true when the publish button is clicked

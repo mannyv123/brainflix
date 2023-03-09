@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Comments from "../../components/Comments/Comments";
@@ -15,8 +15,8 @@ function VideoPage() {
     const [currentVideo, setCurrentVideo] = useState({});
     const [foundVideo, setFoundVideo] = useState(true);
     const { videoId } = useParams();
-
     const navigate = useNavigate();
+    const timerId = useRef(null);
 
     // Generates list of videos in NextVideo component on load
     useEffect(() => {
@@ -38,7 +38,16 @@ function VideoPage() {
                 videos[0].id
             );
         }
-    }, [videoId, videos, navigate]);
+    }, [videoId, videos]);
+
+    useEffect(() => {
+        if (!foundVideo) {
+            timerId.current = setTimeout(() => {
+                navigate("/");
+                setFoundVideo(true);
+            }, 3000);
+        }
+    }, [foundVideo, navigate]);
 
     //Axios call to set state of videos to the data from the api
     function getVideoList() {
@@ -63,11 +72,11 @@ function VideoPage() {
             .catch((error) => {
                 //need to redirect to main page
                 setFoundVideo(false);
-                alert("not found");
+                // alert("not found");
                 console.error(error);
             });
     }
-
+    console.log(foundVideo);
     return (
         <main>
             {/* Note: videoSource just a placeholder; will not work until api added */}
