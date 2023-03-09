@@ -1,18 +1,18 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./UploadPage.scss";
 import uploadPreview from "../../assets/images/Upload-video-preview.jpg";
 import publishIcon from "../../assets/icons/publish.svg";
 
 function UploadPage() {
     const [upload, setUpload] = useState(false);
-    const timerId = useRef(null);
+    // const timerId = useRef(null);
     const navigate = useNavigate();
 
     //Triggers if upload is set to true; Displays a msg and then navigates to main page after a delay
     useEffect(() => {
         if (upload) {
-            timerId.current = setTimeout(() => {
+            setTimeout(() => {
                 navigate("/");
             }, 3000);
         }
