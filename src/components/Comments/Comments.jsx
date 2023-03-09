@@ -30,6 +30,7 @@ function Comments(props) {
         //     uploadId = props.videoId;
         // }
 
+        //Axios call to post new comment and then re-render current video details
         axios
             .post(`${apiUrl}/videos/${props.currentVideo.id}/comments?api_key=${apiKey}`, newComment)
             .then(() => {
@@ -38,17 +39,21 @@ function Comments(props) {
             });
     };
 
+    //Checks to see if currentVideo comments have been loaded yet
     if (!props.currentVideo.comments) {
         console.log("im returning because theres no comments");
         return;
     }
 
+    //Determine number of comments
     const commentCount = props.currentVideo.comments.length;
 
+    //Sort comments from latest to oldest
     props.currentVideo.comments.sort((firstComment, lastComment) => {
         return lastComment.timestamp - firstComment.timestamp;
     });
     console.log("Now I can render comments because there is a current video");
+
     return (
         <section className="comments">
             <p className="comments__count">{`${commentCount} ${
@@ -56,7 +61,6 @@ function Comments(props) {
             }`}</p>
             <div className="comments__form-container">
                 <div className="comments__avatar"></div>
-
                 <form
                     action="submit"
                     className="comments__form"
