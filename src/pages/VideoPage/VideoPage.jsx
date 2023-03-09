@@ -79,11 +79,7 @@ function VideoPage() {
             <section className="content">
                 <section className="content__current-video">
                     <CurrentVideoDetails currentVideo={currentVideo} />
-                    <Comments
-                        currentVideo={currentVideo}
-                        videoId={videoId}
-                        getCurrentVideo={getCurrentVideo}
-                    />
+                    <Comments currentVideo={currentVideo} getCurrentVideo={getCurrentVideo} />
                 </section>
                 {/* <NextVideos videos={videos} currentVideo={currentVideo} handleVideoClick={handleVideoClick} /> */}
                 <NextVideos videos={videos} currentVideoId={currentVideo.id} />

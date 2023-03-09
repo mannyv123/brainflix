@@ -1,5 +1,3 @@
-// import { useState } from "react";
-// import videoList from "../../data/videos.json";
 import "./NextVideos.scss";
 import { Link } from "react-router-dom";
 import NextVideoCard from "../NextVideoCard/NextVideoCard";

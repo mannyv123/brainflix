@@ -8,6 +8,7 @@ import axios from "axios";
 /* Displays a form to submit comments for the currently playing/selected video; 
 renders any existing comments for the current video using CommentCard component */
 function Comments(props) {
+    //function to handle form submission
     const handleCommentsSubmit = (event) => {
         event.preventDefault();
         console.log(event.target.comment.value);
@@ -20,23 +21,25 @@ function Comments(props) {
         console.log(props.currentVideo.id);
         console.log(props.videoId);
 
-        let uploadId = "";
+        // let uploadId = "";
 
-        if (!props.videoId) {
-            console.log("it doesnt exist");
-            uploadId = props.currentVideo.id;
-        } else {
-            uploadId = props.videoId;
-        }
+        // if (!props.videoId) {
+        //     console.log("it doesnt exist");
+        //     uploadId = props.currentVideo.id;
+        // } else {
+        //     uploadId = props.videoId;
+        // }
 
-        axios.post(`${apiUrl}/videos/${uploadId}/comments?api_key=${apiKey}`, newComment).then(() => {
-            console.log(props.videoId);
-            props.getCurrentVideo(uploadId);
-        });
+        axios
+            .post(`${apiUrl}/videos/${props.currentVideo.id}/comments?api_key=${apiKey}`, newComment)
+            .then(() => {
+                console.log(props.videoId);
+                props.getCurrentVideo(props.currentVideo.id);
+            });
     };
 
     if (!props.currentVideo.comments) {
-        console.log("im returning");
+        console.log("im returning because theres no comments");
         return;
     }
 
@@ -45,7 +48,7 @@ function Comments(props) {
     props.currentVideo.comments.sort((firstComment, lastComment) => {
         return lastComment.timestamp - firstComment.timestamp;
     });
-
+    console.log("Now I can render comments because there is a current video");
     return (
         <section className="comments">
             <p className="comments__count">{`${commentCount} ${
