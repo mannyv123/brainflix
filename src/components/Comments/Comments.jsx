@@ -4,10 +4,16 @@ import commentIcon from "../../assets/icons/add_comment.svg";
 import { apiUrl } from "../../pages/VideoPage/VideoPage";
 import { apiKey } from "../../pages/VideoPage/VideoPage";
 import axios from "axios";
+// import { useEffect, useState } from "react";
 
 /* Displays a form to submit comments for the currently playing/selected video; 
 renders any existing comments for the current video using CommentCard component */
 function Comments(props) {
+    // const [comments, setComments] = useState([]);
+    // console.log("Initial comments on load: ", comments);
+
+    // useEffect(() => {}, [comments]);
+
     //function to handle form submission
     const handleCommentsSubmit = (event) => {
         event.preventDefault();
