@@ -29,9 +29,6 @@ function VideoPage() {
     send that video id to the api to get the current video*/
     useEffect(() => {
         if (videoId) {
-            // if (!videos.includes(videoId)) {
-            //     navigate("*");
-            // }
             getCurrentVideo(videoId);
             console.log("I ran getCurrentVideo when videoId is true and the id is ", videoId);
         } else if (videos.length) {

@@ -1,14 +1,14 @@
 import "./CurrentVideo.scss";
 
 /* Main/Hero Video */
-function CurrentVideo(props) {
+function CurrentVideo({ currentVideo }) {
     return (
         <div className="current-video">
             <video
                 className="current-video__player"
                 controls
-                poster={props.currentVideo.image}
-                src={props.currentVideo.video}
+                poster={currentVideo.image}
+                src={currentVideo.video}
             ></video>
         </div>
     );

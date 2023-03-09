@@ -8,7 +8,7 @@ import axios from "axios";
 
 /* Displays a form to submit comments for the currently playing/selected video; 
 renders any existing comments for the current video using CommentCard component */
-function Comments(props) {
+function Comments({ currentVideo, getCurrentVideo }) {
     // const [comments, setComments] = useState([]);
     // console.log("Initial comments on load: ", comments);
 
@@ -24,16 +24,12 @@ function Comments(props) {
             comment: event.target.comment.value,
         };
 
-        console.log(props.currentVideo.id);
-        console.log(props.videoId);
+        console.log(currentVideo.id);
 
         //Axios call to post new comment and then re-render current video details
-        axios
-            .post(`${apiUrl}/videos/${props.currentVideo.id}/comments?api_key=${apiKey}`, newComment)
-            .then(() => {
-                console.log(props.videoId);
-                props.getCurrentVideo(props.currentVideo.id);
-            });
+        axios.post(`${apiUrl}/videos/${currentVideo.id}/comments?api_key=${apiKey}`, newComment).then(() => {
+            getCurrentVideo(currentVideo.id);
+        });
     };
 
     //see if i can change comments state instead of doing another api call**************
@@ -45,21 +41,21 @@ function Comments(props) {
             .delete(`${apiUrl}/videos/${videoId}/comments/${commentId}?api_key=${apiKey}`)
             .then((response) => {
                 console.log(response);
-                props.getCurrentVideo(props.currentVideo.id);
+                getCurrentVideo(currentVideo.id);
             });
     };
 
     //Checks to see if currentVideo comments have been loaded yet
-    if (!props.currentVideo.comments) {
+    if (!currentVideo.comments) {
         console.log("im returning because theres no comments");
         return;
     }
 
     //Determine number of comments
-    const commentCount = props.currentVideo.comments.length;
+    const commentCount = currentVideo.comments.length;
 
     //Sort comments from latest to oldest
-    props.currentVideo.comments.sort((firstComment, lastComment) => {
+    currentVideo.comments.sort((firstComment, lastComment) => {
         return lastComment.timestamp - firstComment.timestamp;
     });
     console.log("Now I can render comments because there is a current video");
@@ -93,7 +89,7 @@ function Comments(props) {
                 </form>
             </div>
             <ul className="comments__list">
-                {props.currentVideo.comments.map((comment) => {
+                {currentVideo.comments.map((comment) => {
                     return (
                         <CommentCard
                             key={comment.id}
@@ -101,7 +97,7 @@ function Comments(props) {
                             timestamp={comment.timestamp}
                             comment={comment.comment}
                             handleCommentsDelete={handleCommentsDelete}
-                            videoId={props.currentVideo.id}
+                            videoId={currentVideo.id}
                             commentId={comment.id}
                         />
                     );
