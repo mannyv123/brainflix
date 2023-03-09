@@ -4,15 +4,18 @@ import commentIcon from "../../assets/icons/add_comment.svg";
 import { apiUrl } from "../../pages/VideoPage/VideoPage";
 import { apiKey } from "../../pages/VideoPage/VideoPage";
 import axios from "axios";
-// import { useEffect, useState } from "react";
+import { useState } from "react";
 
 /* Displays a form to submit comments for the currently playing/selected video; 
 renders any existing comments for the current video using CommentCard component */
 function Comments({ currentVideo, getCurrentVideo }) {
-    // const [comments, setComments] = useState([]);
-    // console.log("Initial comments on load: ", comments);
+    const [comment, setComment] = useState("");
 
-    // useEffect(() => {}, [comments]);
+    //function to handle textarea input change
+    const handleInputChange = (event) => {
+        setComment(event.target.value);
+        console.log(comment);
+    };
 
     //function to handle form submission
     const handleCommentsSubmit = (event) => {
@@ -80,6 +83,8 @@ function Comments({ currentVideo, getCurrentVideo }) {
                         id="comment"
                         className="comments__input"
                         placeholder="Add a new comment"
+                        onChange={handleInputChange}
+                        value={comment}
                     ></textarea>
                     <button className="button button__comment" type="submit">
                         <img src={commentIcon} alt="comment icon" className="button__comment-icon" />

@@ -70,9 +70,7 @@ function VideoPage() {
                 console.log("I got the current video", response.data);
             })
             .catch((error) => {
-                //need to redirect to main page
                 setFoundVideo(false);
-                // alert("not found");
                 console.error(error);
             });
     }
