@@ -9,10 +9,10 @@ function UploadPage() {
     const timerId = useRef(null);
     const navigate = useNavigate();
 
+    //Triggers if upload is set to true; Displays a msg and then navigates to main page after a delay
     useEffect(() => {
         if (upload) {
             timerId.current = setTimeout(() => {
-                // setUpload(false); //this i need to change to navigate
                 navigate("/");
             }, 3000);
         }
@@ -22,20 +22,12 @@ function UploadPage() {
         };
     }, [upload, navigate]);
 
+    //Sets upload to true when the publish button is clicked
     const handleUploadClick = () => {
-        // setUpload(`Thank you for your upload. Redirecting you to the main page...`);
-        // console.log(setTimeout(() => <Navigate to="/" />, 5000));
-
         setUpload(true);
     };
-
-    // return (
-    //     <div>
-    //         {alert("Thank you for your upload!")}
-    //         <Navigate to="/" />;
-    //     </div>
-    // );
     console.log("whats happening");
+
     return (
         <main>
             <section className="upload">
