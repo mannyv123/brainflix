@@ -21,20 +21,24 @@ function Comments(props) {
         console.log(props.currentVideo.id);
         console.log(props.videoId);
 
-        // let uploadId = "";
-
-        // if (!props.videoId) {
-        //     console.log("it doesnt exist");
-        //     uploadId = props.currentVideo.id;
-        // } else {
-        //     uploadId = props.videoId;
-        // }
-
         //Axios call to post new comment and then re-render current video details
         axios
             .post(`${apiUrl}/videos/${props.currentVideo.id}/comments?api_key=${apiKey}`, newComment)
             .then(() => {
                 console.log(props.videoId);
+                props.getCurrentVideo(props.currentVideo.id);
+            });
+    };
+
+    //see if i can change comments state instead of doing another api call**************
+    const handleCommentsDelete = (videoId, commentId) => {
+        console.log("I clicked delete");
+        console.log("videoId: ", videoId);
+        console.log("commentId: ", commentId);
+        axios
+            .delete(`${apiUrl}/videos/${videoId}/comments/${commentId}?api_key=${apiKey}`)
+            .then((response) => {
+                console.log(response);
                 props.getCurrentVideo(props.currentVideo.id);
             });
     };
@@ -90,6 +94,9 @@ function Comments(props) {
                             name={comment.name}
                             timestamp={comment.timestamp}
                             comment={comment.comment}
+                            handleCommentsDelete={handleCommentsDelete}
+                            videoId={props.currentVideo.id}
+                            commentId={comment.id}
                         />
                     );
                 })}

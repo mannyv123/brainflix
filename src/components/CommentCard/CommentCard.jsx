@@ -12,6 +12,13 @@ function CommentCard(props) {
                 <p className="comment__name">{props.name}</p>
                 <p className="comment__timestamp">{timeSincePost}</p>
                 <p className="comment__text">{props.comment}</p>
+                <p
+                    onClick={() => {
+                        props.handleCommentsDelete(props.videoId, props.commentId);
+                    }}
+                >
+                    DELETE
+                </p>
             </div>
         </li>
     );
