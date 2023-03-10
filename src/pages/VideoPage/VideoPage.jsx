@@ -41,12 +41,14 @@ function VideoPage() {
 
     /* Redirects user if the video id for the current video cannot be found */
     useEffect(() => {
+        let timer = "";
         if (!foundVideo) {
-            setTimeout(() => {
+            timer = setTimeout(() => {
                 navigate("/");
                 setFoundVideo(true);
             }, 3000);
         }
+        return () => clearTimeout(timer);
     }, [foundVideo, navigate]);
 
     //Axios call to set state of videos to the data from the api
@@ -66,6 +68,7 @@ function VideoPage() {
         axios
             .get(`${apiUrl}/videos/${videoId}?api_key=${apiKey}`)
             .then((response) => {
+                setFoundVideo(true);
                 setCurrentVideo(response.data);
                 console.log("I got the current video", response.data);
             })

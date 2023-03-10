@@ -4,12 +4,13 @@ import commentIcon from "../../assets/icons/add_comment.svg";
 import { apiUrl } from "../../pages/VideoPage/VideoPage";
 import { apiKey } from "../../pages/VideoPage/VideoPage";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /* Displays a form to submit comments for the currently playing/selected video; 
 renders any existing comments for the current video using CommentCard component */
 function Comments({ currentVideo, getCurrentVideo }) {
     const [comment, setComment] = useState("");
+    const [isBlank, setIsBlank] = useState(false);
 
     //function to handle textarea input change
     const handleInputChange = (event) => {
@@ -17,22 +18,33 @@ function Comments({ currentVideo, getCurrentVideo }) {
         console.log(comment);
     };
 
+    useEffect(() => {
+        setIsBlank(false);
+    }, [currentVideo]);
+
     //function to handle form submission
     const handleCommentsSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target.comment.value);
+        console.log(comment);
 
-        const newComment = {
-            name: "Logged In User",
-            comment: event.target.comment.value,
-        };
+        if (comment !== "") {
+            const newComment = {
+                name: "Anonymous User",
+                comment: comment,
+            };
 
-        console.log(currentVideo.id);
+            console.log(currentVideo.id);
 
-        //Axios call to post new comment and then re-render current video details
-        axios.post(`${apiUrl}/videos/${currentVideo.id}/comments?api_key=${apiKey}`, newComment).then(() => {
-            getCurrentVideo(currentVideo.id);
-        });
+            //Axios call to post new comment and then re-render current video details
+            axios
+                .post(`${apiUrl}/videos/${currentVideo.id}/comments?api_key=${apiKey}`, newComment)
+                .then(() => {
+                    getCurrentVideo(currentVideo.id);
+                });
+            setIsBlank(false);
+        } else {
+            setIsBlank(true);
+        }
     };
 
     //see if i can change comments state instead of doing another api call**************
@@ -86,6 +98,7 @@ function Comments({ currentVideo, getCurrentVideo }) {
                         onChange={handleInputChange}
                         value={comment}
                     ></textarea>
+                    {isBlank ? <p className="comments__error-msg">Comment form cannot be blank</p> : ""}
                     <button className="button button__comment" type="submit">
                         <img src={commentIcon} alt="comment icon" className="button__comment-icon" />
                         Comment
