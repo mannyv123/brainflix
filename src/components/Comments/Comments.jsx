@@ -95,7 +95,7 @@ function Comments({ currentVideo, getCurrentVideo }) {
                     <textarea
                         name="comment"
                         id="comment"
-                        className={!isBlank ? "comments__input" : "comments__input comments__input--error"}
+                        className={`comments__input ${!isBlank ? "" : "comments__input--error"}`}
                         placeholder="Add a new comment"
                         onChange={handleInputChange}
                         value={comment}

@@ -52,32 +52,50 @@
         margin-bottom: 0.25rem;
     }
 
-    &__title-input {
-        @include input;
-        font-size: 0.8125rem;
-        padding: 0.75rem;
-        height: 2.25rem;
-        background-color: $alternative-bg-color;
-        border-radius: 0.25rem;
-        border: $divider-and-outline;
-        color: $primary-text-color;
-        min-width: 15rem;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
+    &__input {
+        &--title {
+            @include input;
+            font-size: 0.8125rem;
+            padding: 0.75rem;
+            height: 2.25rem;
+            background-color: $alternative-bg-color;
+            border-radius: 0.25rem;
+            border: $divider-and-outline;
+            color: $primary-text-color;
+            min-width: 15rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
 
-    &__desc-input {
-        @include input;
-        font-size: 0.8125rem;
-        padding: 0.75rem;
-        height: 5.375rem;
-        resize: none;
-        background-color: $alternative-bg-color;
-        border-radius: 0.25rem;
-        border: $divider-and-outline;
-        color: $primary-text-color;
-        min-width: 15rem;
-        width: 100%;
+        &--desc {
+            @include input;
+            font-size: 0.8125rem;
+            padding: 0.75rem;
+            height: 5.375rem;
+            resize: none;
+            background-color: $alternative-bg-color;
+            border-radius: 0.25rem;
+            border: $divider-and-outline;
+            color: $primary-text-color;
+            min-width: 15rem;
+            width: 100%;
+        }
+
+        &--error {
+            border: 0.0625rem solid $error-color;
+        }
+
+        &--error-msg {
+            color: $error-color;
+            font-size: $fs-body-mobile;
+            font-weight: bold;
+            margin-top: 1.5rem;
+
+            @include tablet {
+                font-size: $fs-body-tablet;
+                order: 1;
+            }
+        }
     }
 
     &__cancel {

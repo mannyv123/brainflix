@@ -7,7 +7,8 @@ import publishIcon from "../../assets/icons/publish.svg";
 function UploadPage() {
     const [videoTitle, setVideoTitle] = useState("");
     const [videoDesc, setVideoDesc] = useState("");
-    const [isBlank, setIsBlank] = useState(false);
+    const [isTitleBlank, setIsTitleBlank] = useState(false);
+    const [isDescBlank, setIsDescBlank] = useState(false);
     const [upload, setUpload] = useState(false);
     const navigate = useNavigate();
 
@@ -35,14 +36,29 @@ function UploadPage() {
 
     console.log("whats happening");
 
+    //Runs validation on upload form; initially resets any previous errors before checking errors again
+    const isFormValid = () => {
+        setIsTitleBlank(false);
+        setIsDescBlank(false);
+        if (videoTitle === "" && videoDesc === "") {
+            setIsTitleBlank(true);
+            setIsDescBlank(true);
+        } else if (videoTitle === "") {
+            setIsTitleBlank(true);
+        } else if (videoDesc === "") {
+            setIsDescBlank(true);
+        } else {
+            return true;
+        }
+    };
+
     //Handles form submission if validation is passed; if validation passed, provides confirmation msg and redirects to main page
     const handleUploadSubmit = (event) => {
         event.preventDefault();
 
-        if (videoTitle === "" || videoDesc === "") {
-            setIsBlank(true);
-        } else {
-            setIsBlank(false);
+        if (isFormValid()) {
+            setIsTitleBlank(false);
+            setIsDescBlank(false);
             setUpload(true);
             setVideoTitle("");
             setVideoDesc("");
@@ -68,7 +84,8 @@ function UploadPage() {
                             Title Your Video
                         </label>
                         <input
-                            className="upload__title-input"
+                            // className="upload__title-input"
+                            className={`upload__input--title ${!isTitleBlank ? "" : "upload__input--error"}`}
                             type="text"
                             name="videoTitle"
                             id="videoTitle"
@@ -80,7 +97,8 @@ function UploadPage() {
                             Add a Video Description
                         </label>
                         <textarea
-                            className="upload__desc-input"
+                            // className="upload__desc-input"
+                            className={`upload__input--desc ${!isDescBlank ? "" : "upload__input--error"}`}
                             name="videoDesc"
                             id="videoDesc"
                             placeholder="Add a description to your video"
@@ -88,7 +106,11 @@ function UploadPage() {
                             onChange={handleDescChange}
                         ></textarea>
                     </div>
-                    {!isBlank ? "" : <p className="upload__input-error">Input fields cannot be blank</p>}
+                    {isTitleBlank || isDescBlank ? (
+                        <p className="upload__input--error-msg">Input fields cannot be blank</p>
+                    ) : (
+                        ""
+                    )}
                     {!upload ? (
                         <button type="" className="button button__publish">
                             <img src={publishIcon} alt="publish icon" className="button__publish-icon" />
