@@ -85,7 +85,9 @@ function UploadPage() {
                         </label>
                         <input
                             // className="upload__title-input"
-                            className={`upload__input--title ${!isTitleBlank ? "" : "upload__input--error"}`}
+                            className={`upload__input upload__input--title ${
+                                !isTitleBlank ? "" : "upload__input--error"
+                            }`}
                             type="text"
                             name="videoTitle"
                             id="videoTitle"
@@ -98,7 +100,9 @@ function UploadPage() {
                         </label>
                         <textarea
                             // className="upload__desc-input"
-                            className={`upload__input--desc ${!isDescBlank ? "" : "upload__input--error"}`}
+                            className={`upload__input upload__input--desc ${
+                                !isDescBlank ? "" : "upload__input--error"
+                            }`}
                             name="videoDesc"
                             id="videoDesc"
                             placeholder="Add a description to your video"
