@@ -9,7 +9,7 @@
     background-color: $tertiary-bg-color;
 
     @include tablet {
-        height: 24.5rem;
+        aspect-ratio: 17 / 9;
         display: flex;
         justify-content: center;
     }

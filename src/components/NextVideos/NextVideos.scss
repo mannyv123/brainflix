@@ -43,4 +43,9 @@
             gap: 1.5rem;
         }
     }
+
+    &__link {
+        text-decoration: none;
+        color: $primary-text-color;
+    }
 }

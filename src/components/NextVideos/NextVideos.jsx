@@ -13,7 +13,7 @@ function NextVideos({ videos, currentVideoId }) {
                     .filter((video) => video.id !== currentVideoId)
                     .map((video) => {
                         return (
-                            <Link to={`/videos/${video.id}`} key={video.id}>
+                            <Link className="next-video__link" to={`/videos/${video.id}`} key={video.id}>
                                 <NextVideoCard
                                     thumbnail={video.image}
                                     title={video.title}
