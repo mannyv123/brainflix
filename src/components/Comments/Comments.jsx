@@ -41,6 +41,7 @@ function Comments({ currentVideo, getCurrentVideo }) {
                 .post(`${apiUrl}/videos/${currentVideo.id}/comments?api_key=${apiKey}`, newComment)
                 .then(() => {
                     getCurrentVideo(currentVideo.id);
+                    setComment("");
                 });
             setIsBlank(false);
         } else {
@@ -94,12 +95,16 @@ function Comments({ currentVideo, getCurrentVideo }) {
                     <textarea
                         name="comment"
                         id="comment"
-                        className="comments__input"
+                        className={!isBlank ? "comments__input" : "comments__input comments__input--error"}
                         placeholder="Add a new comment"
                         onChange={handleInputChange}
                         value={comment}
                     ></textarea>
-                    {isBlank ? <p className="comments__error-msg">Comment form cannot be blank</p> : ""}
+                    {isBlank ? (
+                        <p className="comments__input--error-msg">Comment form cannot be blank</p>
+                    ) : (
+                        ""
+                    )}
                     <button className="button button__comment" type="submit">
                         <img src={commentIcon} alt="comment icon" className="button__comment-icon" />
                         Comment

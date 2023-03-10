@@ -44,6 +44,8 @@ function UploadPage() {
         } else {
             setIsBlank(false);
             setUpload(true);
+            setVideoTitle("");
+            setVideoDesc("");
         }
     };
 

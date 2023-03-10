@@ -81,6 +81,17 @@
             outline: 0.125rem solid $outline-color-active;
         }
 
+        &--error {
+            border: 0.0625rem solid $error-color;
+        }
+
+        &--error-msg {
+            color: $error-color;
+            font-size: $fs-body-mobile;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
         @include tablet {
             min-height: 2rem;
             height: 2.5rem;
