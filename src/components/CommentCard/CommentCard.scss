@@ -56,9 +56,24 @@
 
     &__text {
         margin-top: 0.75rem;
+        width: 100%;
 
         @include tablet {
             margin-top: 0.25rem;
+        }
+    }
+
+    &__delete {
+        margin-top: 0.75rem;
+        width: 0.75rem;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(1);
         }
     }
 }
