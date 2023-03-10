@@ -23,7 +23,7 @@ function Header() {
                             className="nav__search-input"
                         />
                     </div>
-                    <NavLink className="button button__upload--tablet">
+                    <NavLink to="/upload" className="button button__upload--tablet">
                         <img src={uploadIcon} alt="upload video icon" className="button__upload-icon" />
                         Upload
                         <div className="button__upload-icon button--hidden"></div>

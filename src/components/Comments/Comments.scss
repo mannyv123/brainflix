@@ -90,6 +90,13 @@
             font-size: $fs-body-mobile;
             font-weight: bold;
             margin-bottom: 1rem;
+
+            @include tablet {
+                font-size: $fs-body-tablet;
+                order: 1;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
         }
 
         @include tablet {
