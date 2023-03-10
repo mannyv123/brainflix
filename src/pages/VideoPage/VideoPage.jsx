@@ -63,7 +63,8 @@ function VideoPage() {
             });
     }
 
-    //Axios call to get current video details from the api based on the video id
+    /*Axios call to get current video details from the api based on the video id; 
+    also resets foundVideo to true when the api call is successful*/
     function getCurrentVideo(videoId) {
         axios
             .get(`${apiUrl}/videos/${videoId}?api_key=${apiKey}`)

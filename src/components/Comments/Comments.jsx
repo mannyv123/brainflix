@@ -18,6 +18,7 @@ function Comments({ currentVideo, getCurrentVideo }) {
         console.log(comment);
     };
 
+    //Resets error msg when there is a change in the currentVideo prop (navigate to new page/video)
     useEffect(() => {
         setIsBlank(false);
     }, [currentVideo]);
