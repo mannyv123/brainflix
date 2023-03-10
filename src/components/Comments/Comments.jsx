@@ -112,12 +112,9 @@ function Comments({ currentVideo, getCurrentVideo }) {
                     return (
                         <CommentCard
                             key={comment.id}
-                            name={comment.name}
-                            timestamp={comment.timestamp}
-                            comment={comment.comment}
+                            comment={comment}
                             handleCommentsDelete={handleCommentsDelete}
                             videoId={currentVideo.id}
-                            commentId={comment.id}
                         />
                     );
                 })}
