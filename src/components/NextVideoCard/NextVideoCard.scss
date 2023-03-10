@@ -7,10 +7,16 @@
         width: 100%;
         display: flex;
         cursor: pointer;
+        transition: 0.15s;
 
         &:hover {
             background-color: $alternative-bg-color;
             border-radius: 0.25rem;
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: scale(0.95);
         }
 
         @include tablet {
