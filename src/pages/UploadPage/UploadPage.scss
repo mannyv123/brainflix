@@ -60,6 +60,11 @@
         margin-top: 1rem;
         display: flex;
         flex-direction: column;
+
+        @include tablet {
+            padding-bottom: 1.5rem;
+            border-bottom: $divider-and-outline;
+        }
     }
 
     &__input-label {
@@ -84,6 +89,10 @@
 
         &--title {
             margin-bottom: 1rem;
+
+            @include tablet {
+                height: 2.5rem;
+            }
         }
 
         &--desc {
