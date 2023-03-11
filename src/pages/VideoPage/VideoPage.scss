@@ -1,6 +1,13 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+.video-error {
+    margin: 3rem 0;
+    width: 100%;
+    text-align: center;
+    color: $error-color;
+    font-weight: bold;
+}
 .content {
     display: flex;
     flex-direction: column;

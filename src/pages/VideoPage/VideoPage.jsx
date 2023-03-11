@@ -83,13 +83,16 @@ function VideoPage() {
         <main>
             {/* Note: videoSource just a placeholder; will not work until api added */}
             {/* Ternary operator used that renders error msg if current video cannot be found */}
-            {foundVideo ? <CurrentVideo currentVideo={currentVideo} /> : "Video Not Found. Please Try Again"}
+            {foundVideo ? (
+                <CurrentVideo currentVideo={currentVideo} />
+            ) : (
+                <p className="video-error">Video Not Found. Redirecting to main page...</p>
+            )}
             <section className="content">
                 <section className="content__current-video">
                     <CurrentVideoDetails currentVideo={currentVideo} />
                     <Comments currentVideo={currentVideo} getCurrentVideo={getCurrentVideo} />
                 </section>
-                {/* <NextVideos videos={videos} currentVideo={currentVideo} handleVideoClick={handleVideoClick} /> */}
                 <NextVideos videos={videos} currentVideoId={currentVideo.id} />
                 {console.log("Here are the videos", videos)}
                 {console.log("This is the current video ", currentVideo)}
