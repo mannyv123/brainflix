@@ -25,6 +25,8 @@
 
     &__form {
         margin-top: 1.75rem;
+        display: flex;
+        flex-direction: column;
     }
 
     // &__thumbnail-container {
@@ -112,8 +114,16 @@
 
             @include tablet {
                 font-size: $fs-body-tablet;
-                order: 1;
             }
+        }
+    }
+
+    &__form-actions {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
         }
     }
 
@@ -128,5 +138,11 @@
         cursor: pointer;
         margin-top: 2.5rem;
         text-decoration: none;
+
+        @include tablet {
+            width: fit-content;
+            margin-top: 0;
+            margin-right: 5rem;
+        }
     }
 }

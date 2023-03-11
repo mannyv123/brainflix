@@ -115,20 +115,23 @@ function UploadPage() {
                     ) : (
                         ""
                     )}
-                    {!upload ? (
-                        <button type="" className="button button__publish">
-                            <img src={publishIcon} alt="publish icon" className="button__publish-icon" />
-                            Publish
-                            <div className="button__publish-icon button--hidden"></div>
-                        </button>
-                    ) : (
-                        <p>Thank you for your upload. Redirecting you to the home page...</p>
-                    )}
-                    {console.log("whats happening")}
+                    <div className="upload__form-actions">
+                        {!upload ? (
+                            <button type="" className="button button__publish">
+                                <img src={publishIcon} alt="publish icon" className="button__publish-icon" />
+                                Publish
+                                <div className="button__publish-icon button--hidden"></div>
+                            </button>
+                        ) : (
+                            <p>Thank you for your upload. Redirecting you to the home page...</p>
+                        )}
+                        {console.log("whats happening")}
+
+                        <Link className="upload__cancel" to="/">
+                            <p>Cancel</p>
+                        </Link>
+                    </div>
                 </form>
-                <Link className="upload__cancel" to="/">
-                    <p>Cancel</p>
-                </Link>
             </section>
         </main>
     );

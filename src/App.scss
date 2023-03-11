@@ -97,6 +97,17 @@ body {
         justify-content: space-between;
         margin-top: 1.5rem;
         cursor: pointer;
+
+        @include tablet {
+            display: flex;
+            width: 9.375rem;
+            justify-content: space-between;
+            padding: 0.5rem;
+            height: 2.5rem;
+            align-self: flex-end;
+            order: 1;
+            margin-top: 0;
+        }
     }
 
     &__publish-icon {
