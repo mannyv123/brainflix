@@ -75,62 +75,68 @@ function UploadPage() {
                     className="upload__form"
                     onSubmit={(event) => handleUploadSubmit(event)}
                 >
-                    <div className="upload__thumbnail-container">
-                        <h3 className="upload__thumbnail-label">Video Thumbnail</h3>
-                        <img className="upload__thumbnail-img" src={uploadPreview} alt="upload preview" />
-                    </div>
-                    <div className="upload__inputs-container">
-                        <label className="upload__input-label" htmlFor="videoTitle">
-                            Title Your Video
-                        </label>
-                        <input
-                            // className="upload__title-input"
-                            className={`upload__input upload__input--title ${
-                                !isTitleBlank ? "" : "upload__input--error"
-                            }`}
-                            type="text"
-                            name="videoTitle"
-                            id="videoTitle"
-                            placeholder="Add a title to your video"
-                            value={videoTitle}
-                            onChange={handleTitleChange}
-                        />
-                        <label className="upload__input-label" htmlFor="videoDesc">
-                            Add a Video Description
-                        </label>
-                        <textarea
-                            // className="upload__desc-input"
-                            className={`upload__input upload__input--desc ${
-                                !isDescBlank ? "" : "upload__input--error"
-                            }`}
-                            name="videoDesc"
-                            id="videoDesc"
-                            placeholder="Add a description to your video"
-                            value={videoDesc}
-                            onChange={handleDescChange}
-                        ></textarea>
+                    <div className="upload__details-container">
+                        <div className="upload__thumbnail-container">
+                            <h3 className="upload__thumbnail-label">Video Thumbnail</h3>
+                            <img className="upload__thumbnail-img" src={uploadPreview} alt="upload preview" />
+                        </div>
+                        <div className="upload__inputs-container">
+                            <label className="upload__input-label" htmlFor="videoTitle">
+                                Title Your Video
+                            </label>
+                            <input
+                                // className="upload__title-input"
+                                className={`upload__input upload__input--title ${
+                                    !isTitleBlank ? "" : "upload__input--error"
+                                }`}
+                                type="text"
+                                name="videoTitle"
+                                id="videoTitle"
+                                placeholder="Add a title to your video"
+                                value={videoTitle}
+                                onChange={handleTitleChange}
+                            />
+                            <label
+                                className="upload__input-label upload__input-label--desc"
+                                htmlFor="videoDesc"
+                            >
+                                Add a Video Description
+                            </label>
+                            <textarea
+                                // className="upload__desc-input"
+                                className={`upload__input upload__input--desc ${
+                                    !isDescBlank ? "" : "upload__input--error"
+                                }`}
+                                name="videoDesc"
+                                id="videoDesc"
+                                placeholder="Add a description to your video"
+                                value={videoDesc}
+                                onChange={handleDescChange}
+                            ></textarea>
+                        </div>
                     </div>
                     {isTitleBlank || isDescBlank ? (
                         <p className="upload__input--error-msg">Input fields cannot be blank</p>
                     ) : (
                         ""
                     )}
-                    <div className="upload__form-actions">
-                        {!upload ? (
+                    {!upload ? (
+                        <div className="upload__form-actions">
                             <button type="" className="button button__publish">
                                 <img src={publishIcon} alt="publish icon" className="button__publish-icon" />
                                 Publish
                                 <div className="button__publish-icon button--hidden"></div>
                             </button>
-                        ) : (
-                            <p>Thank you for your upload. Redirecting you to the home page...</p>
-                        )}
-                        {console.log("whats happening")}
-
-                        <Link className="upload__cancel" to="/">
-                            <p>Cancel</p>
-                        </Link>
-                    </div>
+                            <Link className="upload__cancel" to="/">
+                                <p>Cancel</p>
+                            </Link>
+                        </div>
+                    ) : (
+                        <p className="upload__success">
+                            Thank you for your upload. Redirecting you to the home page...
+                        </p>
+                    )}
+                    {console.log("whats happening")}
                 </form>
             </section>
         </main>

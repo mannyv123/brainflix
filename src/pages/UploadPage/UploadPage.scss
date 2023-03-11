@@ -29,6 +29,18 @@
         flex-direction: column;
     }
 
+    &__details-container {
+        @include tablet {
+            padding-bottom: 1.5rem;
+            border-bottom: $divider-and-outline;
+        }
+
+        @include desktop {
+            display: flex;
+            padding-bottom: 1.75rem;
+        }
+    }
+
     // &__thumbnail-container {
     //     width: 100%;
     // }
@@ -50,11 +62,17 @@
         object-fit: cover;
         border-radius: 0.25rem;
         transition: 1s;
+        display: block;
 
         @include tablet {
             transition: 1s;
             width: 21.625rem;
             height: 11.875rem;
+        }
+
+        @include desktop {
+            height: 10.625rem;
+            width: 20.3125rem;
         }
     }
 
@@ -63,9 +81,12 @@
         display: flex;
         flex-direction: column;
 
-        @include tablet {
-            padding-bottom: 1.5rem;
-            border-bottom: $divider-and-outline;
+        @include desktop {
+            flex: 1;
+            margin-top: 0;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-left: 1.5rem;
         }
     }
 
@@ -75,6 +96,12 @@
         color: $seconday-text-color;
         font-weight: bold;
         margin-bottom: 0.25rem;
+
+        @include desktop {
+            &--desc {
+                align-self: flex-end;
+            }
+        }
     }
 
     &__input {
@@ -100,6 +127,7 @@
         &--desc {
             height: 5.375rem;
             resize: none;
+            align-self: flex-end;
         }
 
         &--error {
@@ -144,5 +172,11 @@
             margin-top: 0;
             margin-right: 5rem;
         }
+    }
+
+    &__success {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
     }
 }

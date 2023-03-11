@@ -17,8 +17,10 @@
 /* Outside Padding */
 @mixin outside-padding {
     padding: 1rem 5%;
+    transition: 1s;
 
     @include desktop {
+        transition: 1s;
         padding: 1rem 10.156%;
     }
 }
