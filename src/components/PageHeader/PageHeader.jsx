@@ -1,10 +1,10 @@
-import "./Header.scss";
+import "./PageHeader.scss";
 import logo from "../../assets/logo/BrainFlix-logo.svg";
 import searchIcon from "../../assets/icons/search.svg";
 import uploadIcon from "../../assets/icons/upload.svg";
 import { Link } from "react-router-dom";
 
-function Header() {
+function PageHeader() {
     return (
         <header className="nav-header">
             {/* Main Navigation */}
@@ -40,4 +40,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default PageHeader;

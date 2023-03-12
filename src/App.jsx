@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.scss";
-import Header from "./components/Header/Header";
+import PageHeader from "./components/PageHeader/PageHeader";
 import VideoPage from "./pages/VideoPage/VideoPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -9,7 +9,7 @@ function App() {
     return (
         <div className="App">
             <BrowserRouter>
-                <Header />
+                <PageHeader />
                 <Routes>
                     <Route path="/" element={<VideoPage />} />
                     <Route path="/home" element={<Navigate to="/" />} />
