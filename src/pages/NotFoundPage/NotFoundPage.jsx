@@ -1,10 +1,10 @@
-import "./NotFoundPage";
+import "./NotFoundPage.scss";
 
 function NotFoundPage() {
     return (
-        <div>
-            <h1>404-Page not Found</h1>
-        </div>
+        <section className="not-found">
+            <h1 className="not-found__title">404 - Page not Found ☹️</h1>
+        </section>
     );
 }
 

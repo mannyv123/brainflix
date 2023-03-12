@@ -1,0 +1,11 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.not-found {
+    @include outside-padding;
+    border-top: $divider-and-outline;
+
+    &__title {
+        margin-bottom: 2rem;
+    }
+}
