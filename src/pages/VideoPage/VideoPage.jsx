@@ -20,7 +20,6 @@ function VideoPage() {
     // Generates list of videos in NextVideo component on load
     useEffect(() => {
         getVideoList();
-        console.log("I ran getVideoList on load");
     }, []);
 
     /*  Determines what video id to use to get current video from the api; 
@@ -29,13 +28,8 @@ function VideoPage() {
     useEffect(() => {
         if (videoId) {
             getCurrentVideo(videoId);
-            console.log("I ran getCurrentVideo when videoId is true and the id is ", videoId);
         } else if (videos.length) {
             getCurrentVideo(videos[0].id);
-            console.log(
-                "I ran getCurrentVideo when video Id is false but videos has a length: ",
-                videos[0].id
-            );
         }
     }, [videoId, videos]);
 
@@ -71,7 +65,6 @@ function VideoPage() {
             .then((response) => {
                 setFoundVideo(true);
                 setCurrentVideo(response.data);
-                console.log("I got the current video", response.data);
             })
             .catch((error) => {
                 setFoundVideo(false);
@@ -94,8 +87,6 @@ function VideoPage() {
                     <Comments currentVideo={currentVideo} getCurrentVideo={getCurrentVideo} />
                 </section>
                 <NextVideos videos={videos} currentVideoId={currentVideo.id} />
-                {console.log("Here are the videos", videos)}
-                {console.log("This is the current video ", currentVideo)}
             </section>
         </main>
     );

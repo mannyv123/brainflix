@@ -15,13 +15,11 @@ function UploadPage() {
     //Monitors title input field
     const handleTitleChange = (event) => {
         setVideoTitle(event.target.value);
-        console.log(videoTitle);
     };
 
     //Monitors description input field
     const handleDescChange = (event) => {
         setVideoDesc(event.target.value);
-        console.log(videoDesc);
     };
 
     //Triggers if upload is set to true; Displays a msg and then navigates to main page after a delay
@@ -31,10 +29,7 @@ function UploadPage() {
                 navigate("/");
             }, 3000);
         }
-        console.log(upload);
     }, [upload, navigate]);
-
-    console.log("whats happening");
 
     //Runs validation on upload form; initially resets any previous errors before checking errors again
     const isFormValid = () => {
@@ -52,7 +47,8 @@ function UploadPage() {
         }
     };
 
-    //Handles form submission if validation is passed; if validation passed, provides confirmation msg and redirects to main page
+    /*Handles form submission if validation is passed; if validation passed, 
+    provides confirmation msg and redirects to main page*/
     const handleUploadSubmit = (event) => {
         event.preventDefault();
 
@@ -69,14 +65,13 @@ function UploadPage() {
         <main>
             <section className="upload">
                 <h1 className="upload__page-title">Upload Video</h1>
-
                 <form
                     action="submit"
                     className="upload__form"
                     onSubmit={(event) => handleUploadSubmit(event)}
                 >
                     <div className="upload__details-container">
-                        <div className="upload__thumbnail-container">
+                        <div>
                             <h3 className="upload__thumbnail-label">Video Thumbnail</h3>
                             <img className="upload__thumbnail-img" src={uploadPreview} alt="upload preview" />
                         </div>
@@ -85,7 +80,6 @@ function UploadPage() {
                                 Title Your Video
                             </label>
                             <input
-                                // className="upload__title-input"
                                 className={`upload__input upload__input--title ${
                                     !isTitleBlank ? "" : "upload__input--error"
                                 }`}
@@ -103,7 +97,6 @@ function UploadPage() {
                                 Add a Video Description
                             </label>
                             <textarea
-                                // className="upload__desc-input"
                                 className={`upload__input upload__input--desc ${
                                     !isDescBlank ? "" : "upload__input--error"
                                 }`}
@@ -122,7 +115,7 @@ function UploadPage() {
                     )}
                     {!upload ? (
                         <div className="upload__form-actions">
-                            <button type="" className="button button__publish">
+                            <button type="submit" className="button button__publish">
                                 <img src={publishIcon} alt="publish icon" className="button__publish-icon" />
                                 Publish
                                 <div className="button__publish-icon button--hidden"></div>
@@ -136,7 +129,6 @@ function UploadPage() {
                             Thank you for your upload. Redirecting you to the home page...
                         </p>
                     )}
-                    {console.log("whats happening")}
                 </form>
             </section>
         </main>

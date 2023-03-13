@@ -15,7 +15,6 @@ function Comments({ currentVideo, getCurrentVideo }) {
     //function to handle textarea input change
     const handleInputChange = (event) => {
         setComment(event.target.value);
-        console.log(comment);
     };
 
     //Resets error msg when there is a change in the currentVideo prop (navigate to new page/video)
@@ -26,7 +25,6 @@ function Comments({ currentVideo, getCurrentVideo }) {
     //function to handle form submission
     const handleCommentsSubmit = (event) => {
         event.preventDefault();
-        console.log(comment);
 
         if (comment !== "") {
             const newComment = {
@@ -34,14 +32,15 @@ function Comments({ currentVideo, getCurrentVideo }) {
                 comment: comment,
             };
 
-            console.log(currentVideo.id);
-
             //Axios call to post new comment and then re-render current video details
             axios
                 .post(`${apiUrl}/videos/${currentVideo.id}/comments?api_key=${apiKey}`, newComment)
                 .then(() => {
                     getCurrentVideo(currentVideo.id);
                     setComment("");
+                })
+                .catch((error) => {
+                    console.error(error);
                 });
             setIsBlank(false);
         } else {
@@ -49,22 +48,20 @@ function Comments({ currentVideo, getCurrentVideo }) {
         }
     };
 
-    //see if i can change comments state instead of doing another api call**************
+    //Function to delete comments from api
     const handleCommentsDelete = (videoId, commentId) => {
-        console.log("I clicked delete");
-        console.log("videoId: ", videoId);
-        console.log("commentId: ", commentId);
         axios
             .delete(`${apiUrl}/videos/${videoId}/comments/${commentId}?api_key=${apiKey}`)
             .then((response) => {
-                console.log(response);
                 getCurrentVideo(currentVideo.id);
+            })
+            .catch((error) => {
+                console.error(error);
             });
     };
 
     //Checks to see if currentVideo comments have been loaded yet
     if (!currentVideo.comments) {
-        console.log("im returning because theres no comments");
         return;
     }
 
@@ -75,7 +72,6 @@ function Comments({ currentVideo, getCurrentVideo }) {
     currentVideo.comments.sort((firstComment, lastComment) => {
         return lastComment.timestamp - firstComment.timestamp;
     });
-    console.log("Now I can render comments because there is a current video");
 
     return (
         <section className="comments">

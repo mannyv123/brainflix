@@ -9,7 +9,7 @@ function NextVideoCard({ thumbnail, title, channel }) {
             </div>
             <div className="next-video__details">
                 <p className="next-video__title">{title}</p>
-                <p className="next-video__channel">{channel}</p>
+                <p>{channel}</p>
             </div>
         </li>
     );

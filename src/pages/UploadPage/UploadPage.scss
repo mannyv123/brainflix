@@ -1,6 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+/* Styling for Upload Page */
 .upload {
     @include outside-padding;
     border-top: $divider-and-outline;
@@ -40,10 +41,6 @@
             padding-bottom: 1.75rem;
         }
     }
-
-    // &__thumbnail-container {
-    //     width: 100%;
-    // }
 
     &__thumbnail-label {
         text-transform: uppercase;
