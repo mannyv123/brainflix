@@ -1,4 +1,5 @@
 import "./CurrentVideo.scss";
+import { API_URL } from "../../pages/VideoPage/VideoPage";
 
 /* Main/Hero Video */
 function CurrentVideo({ currentVideo }) {
@@ -7,7 +8,7 @@ function CurrentVideo({ currentVideo }) {
             <video
                 className="current-video__player"
                 controls
-                poster={currentVideo.image}
+                poster={`${API_URL}${currentVideo.image}`}
                 src={currentVideo.video}
             ></video>
         </div>
