@@ -10,6 +10,8 @@ import "./VideoPage.scss";
 export const apiUrl = "https://project-2-api.herokuapp.com";
 export const apiKey = "d28fb146-1574-4fbd-a40b-9046fc985897";
 
+export const API_URL = "http://localhost:5001";
+
 function VideoPage() {
     const [videos, setVideos] = useState([]);
     const [currentVideo, setCurrentVideo] = useState({});
@@ -48,7 +50,7 @@ function VideoPage() {
     //Axios call to set state of videos to the data from the api
     function getVideoList() {
         axios
-            .get(`${apiUrl}/videos?api_key=${apiKey}`)
+            .get(`${API_URL}/videos`)
             .then((response) => {
                 setVideos(response.data);
             })
@@ -61,7 +63,7 @@ function VideoPage() {
     also resets foundVideo to true when the api call is successful*/
     function getCurrentVideo(videoId) {
         axios
-            .get(`${apiUrl}/videos/${videoId}?api_key=${apiKey}`)
+            .get(`${API_URL}/videos/${videoId}`)
             .then((response) => {
                 setFoundVideo(true);
                 setCurrentVideo(response.data);
