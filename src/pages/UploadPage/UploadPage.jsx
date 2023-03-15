@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import "./UploadPage.scss";
 import uploadPreview from "../../assets/images/Upload-video-preview.jpg";
 import publishIcon from "../../assets/icons/publish.svg";
+import axios from "axios";
+import { API_URL } from "../VideoPage/VideoPage";
 
 function UploadPage() {
     const [videoTitle, setVideoTitle] = useState("");
@@ -38,10 +40,13 @@ function UploadPage() {
         if (videoTitle === "" && videoDesc === "") {
             setIsTitleBlank(true);
             setIsDescBlank(true);
+            return false;
         } else if (videoTitle === "") {
             setIsTitleBlank(true);
+            return false;
         } else if (videoDesc === "") {
             setIsDescBlank(true);
+            return false;
         } else {
             return true;
         }
@@ -52,13 +57,27 @@ function UploadPage() {
     const handleUploadSubmit = (event) => {
         event.preventDefault();
 
-        if (isFormValid()) {
-            setIsTitleBlank(false);
-            setIsDescBlank(false);
-            setUpload(true);
-            setVideoTitle("");
-            setVideoDesc("");
+        if (!isFormValid()) {
+            return console.error("Form is not valid; missing information");
         }
+
+        axios
+            .post(`${API_URL}/videos`, {
+                title: videoTitle,
+                description: videoDesc,
+            })
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
+        setIsTitleBlank(false);
+        setIsDescBlank(false);
+        setUpload(true);
+        setVideoTitle("");
+        setVideoDesc("");
     };
 
     return (
