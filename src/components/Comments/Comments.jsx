@@ -3,6 +3,7 @@ import "./Comments.scss";
 import commentIcon from "../../assets/icons/add_comment.svg";
 import { apiUrl } from "../../pages/VideoPage/VideoPage";
 import { apiKey } from "../../pages/VideoPage/VideoPage";
+import { API_URL } from "../../pages/VideoPage/VideoPage";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -28,13 +29,12 @@ function Comments({ currentVideo, getCurrentVideo }) {
 
         if (comment !== "") {
             const newComment = {
-                name: "Anonymous User",
                 comment: comment,
             };
 
             //Axios call to post new comment and then re-render current video details
             axios
-                .post(`${apiUrl}/videos/${currentVideo.id}/comments?api_key=${apiKey}`, newComment)
+                .post(`${API_URL}/videos/${currentVideo.id}/comments`, newComment)
                 .then(() => {
                     getCurrentVideo(currentVideo.id);
                     setComment("");
