@@ -1,8 +1,8 @@
 import CommentCard from "../CommentCard/CommentCard";
 import "./Comments.scss";
 import commentIcon from "../../assets/icons/add_comment.svg";
-import { apiUrl } from "../../pages/VideoPage/VideoPage";
-import { apiKey } from "../../pages/VideoPage/VideoPage";
+// import { apiUrl } from "../../pages/VideoPage/VideoPage";
+// import { apiKey } from "../../pages/VideoPage/VideoPage";
 import { API_URL } from "../../pages/VideoPage/VideoPage";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -51,8 +51,8 @@ function Comments({ currentVideo, getCurrentVideo }) {
     //Function to delete comments from api
     const handleCommentsDelete = (videoId, commentId) => {
         axios
-            .delete(`${apiUrl}/videos/${videoId}/comments/${commentId}?api_key=${apiKey}`)
-            .then((response) => {
+            .delete(`${API_URL}/videos/${videoId}/comments/${commentId}`)
+            .then(() => {
                 getCurrentVideo(currentVideo.id);
             })
             .catch((error) => {
