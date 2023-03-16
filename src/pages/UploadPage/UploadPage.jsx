@@ -9,6 +9,7 @@ import { API_URL } from "../VideoPage/VideoPage";
 function UploadPage() {
     const [videoTitle, setVideoTitle] = useState("");
     const [videoDesc, setVideoDesc] = useState("");
+    const [file, setFile] = useState(null);
     const [isTitleBlank, setIsTitleBlank] = useState(false);
     const [isDescBlank, setIsDescBlank] = useState(false);
     const [upload, setUpload] = useState(false);
@@ -22,6 +23,12 @@ function UploadPage() {
     //Monitors description input field
     const handleDescChange = (event) => {
         setVideoDesc(event.target.value);
+    };
+
+    //Monitors image input field
+    const handleImageUpload = (event) => {
+        setFile(event.target.files[0]);
+        console.log(file);
     };
 
     //Triggers if upload is set to true; Displays a msg and then navigates to main page after a delay
@@ -61,11 +68,15 @@ function UploadPage() {
             return console.error("Form is not valid; missing information");
         }
 
+        console.log(file);
+        const formData = new FormData();
+        formData.append("title", videoTitle);
+        formData.append("description", videoDesc);
+        formData.append("file", event.target.file.files[0]);
+        console.log(formData);
+
         axios
-            .post(`${API_URL}/videos`, {
-                title: videoTitle,
-                description: videoDesc,
-            })
+            .post(`${API_URL}/videos`, formData)
             .then((response) => {
                 console.log(response.data);
             })
@@ -79,7 +90,7 @@ function UploadPage() {
         setVideoTitle("");
         setVideoDesc("");
     };
-
+    console.log(file);
     return (
         <main>
             <section className="upload">
@@ -87,12 +98,14 @@ function UploadPage() {
                 <form
                     action="submit"
                     className="upload__form"
+                    encType="multipart/form-data"
                     onSubmit={(event) => handleUploadSubmit(event)}
                 >
                     <div className="upload__details-container">
                         <div>
                             <h3 className="upload__thumbnail-label">Video Thumbnail</h3>
                             <img className="upload__thumbnail-img" src={uploadPreview} alt="upload preview" />
+                            <input type="file" name="file" onChange={handleImageUpload} />
                         </div>
                         <div className="upload__inputs-container">
                             <label className="upload__input-label" htmlFor="videoTitle">
