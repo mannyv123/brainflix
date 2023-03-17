@@ -7,13 +7,16 @@ import axios from "axios";
 import { API_URL } from "../VideoPage/VideoPage";
 
 function UploadPage() {
-    const [videoTitle, setVideoTitle] = useState("");
-    const [videoDesc, setVideoDesc] = useState("");
-    const [file, setFile] = useState(null);
-    const [isTitleBlank, setIsTitleBlank] = useState(false);
-    const [isDescBlank, setIsDescBlank] = useState(false);
-    const [upload, setUpload] = useState(false);
+    const [videoTitle, setVideoTitle] = useState(""); //tracks video title input
+    const [videoDesc, setVideoDesc] = useState(""); //tracks video description input
+    const [file, setFile] = useState(null); //tracks uploaded image files
+    const [fileDataUrl, setFileDataUrl] = useState(null); //tracks data url for uploaded image file
+    const [isTitleBlank, setIsTitleBlank] = useState(false); //used in form validation to render error scss if input is blank
+    const [isDescBlank, setIsDescBlank] = useState(false); //used in form validation to render error scss if input is blank
+    const [upload, setUpload] = useState(false); //used to trigger navigate when upload button is clicked
     const navigate = useNavigate();
+
+    // const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
     //Monitors title input field
     const handleTitleChange = (event) => {
@@ -28,8 +31,36 @@ function UploadPage() {
     //Monitors image input field
     const handleImageUpload = (event) => {
         setFile(event.target.files[0]);
+        // if (file !== null && !file.type.match(imageMimeType)) {
+        //     alert("Image file type not accepted. Only PNG, JPG, or JPEG accepted.");
+        //     setFile(null);
+        //     console.log("I ran");
+        //     return;
+        // }
         console.log(file);
     };
+
+    useEffect(() => {
+        let fileReader,
+            isCancel = false;
+        if (file) {
+            fileReader = new FileReader();
+            fileReader.onload = (event) => {
+                const { result } = event.target;
+                console.log(event.target);
+                if (result && !isCancel) {
+                    setFileDataUrl(result);
+                }
+            };
+            fileReader.readAsDataURL(file);
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        };
+    }, [file]);
 
     //Triggers if upload is set to true; Displays a msg and then navigates to main page after a delay
     useEffect(() => {
@@ -104,7 +135,11 @@ function UploadPage() {
                     <div className="upload__details-container">
                         <div>
                             <h3 className="upload__thumbnail-label">Video Thumbnail</h3>
-                            <img className="upload__thumbnail-img" src={uploadPreview} alt="upload preview" />
+                            <img
+                                className="upload__thumbnail-img"
+                                src={fileDataUrl ? fileDataUrl : uploadPreview}
+                                alt="upload preview"
+                            />
                             <input
                                 type="file"
                                 name="file"
@@ -133,9 +168,8 @@ function UploadPage() {
                                 Add a Video Description
                             </label>
                             <textarea
-                                className={`upload__input upload__input--desc ${
-                                    !isDescBlank ? "" : "upload__input--error"
-                                }`}
+                                className={`upload__input upload__input--desc 
+                                ${!isDescBlank ? "" : "upload__input--error"}`}
                                 name="videoDesc"
                                 id="videoDesc"
                                 placeholder="Add a description to your video"
