@@ -30,7 +30,7 @@ function UploadPage() {
 
     //Monitors image input field
     const handleImageUpload = (event) => {
-        setFile(event.target.files[0]);
+        setFile(event.target.files[0]); //updates file state with the File object which represents the selected file
         // if (file !== null && !file.type.match(imageMimeType)) {
         //     alert("Image file type not accepted. Only PNG, JPG, or JPEG accepted.");
         //     setFile(null);
@@ -40,24 +40,25 @@ function UploadPage() {
         console.log(file);
     };
 
+    //useEffect to read the selected file and set the file data url; 
     useEffect(() => {
         let fileReader,
             isCancel = false;
         if (file) {
             fileReader = new FileReader();
-            fileReader.onload = (event) => {
+            fileReader.onload = (event) => { //onload event occurs when the file is finished loading / fileReader is done reading the file
                 const { result } = event.target;
                 console.log(event.target);
                 if (result && !isCancel) {
-                    setFileDataUrl(result);
+                    setFileDataUrl(result); //sets the file data url to the result; which allows the image element to set source to this url
                 }
             };
-            fileReader.readAsDataURL(file);
+            fileReader.readAsDataURL(file); //FileReader object starts reading the file; once complete, onload above is called
         }
-        return () => {
-            isCancel = true;
-            if (fileReader && fileReader.readyState === 1) {
-                fileReader.abort();
+        return () => { //cleanup function; return stmnt needed if component is unmounted before loading is finished
+            isCancel = true; //first sets isCancel to true to ensure the onload function above does not set the file data url
+            if (fileReader && fileReader.readyState === 1) { //checks to see if fileReader object created and if its state is in the loading state
+                fileReader.abort(); //if the above two are true, aborts the file read
             }
         };
     }, [file]);
