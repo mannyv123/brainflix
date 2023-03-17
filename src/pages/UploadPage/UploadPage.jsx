@@ -72,7 +72,7 @@ function UploadPage() {
         const formData = new FormData();
         formData.append("title", videoTitle);
         formData.append("description", videoDesc);
-        formData.append("file", event.target.file.files[0]);
+        formData.append("file", file);
         console.log(formData);
 
         axios
@@ -105,16 +105,20 @@ function UploadPage() {
                         <div>
                             <h3 className="upload__thumbnail-label">Video Thumbnail</h3>
                             <img className="upload__thumbnail-img" src={uploadPreview} alt="upload preview" />
-                            <input type="file" name="file" onChange={handleImageUpload} />
+                            <input
+                                type="file"
+                                name="file"
+                                onChange={handleImageUpload}
+                                accept=".jpg, .jpeg, .png"
+                            />
                         </div>
                         <div className="upload__inputs-container">
                             <label className="upload__input-label" htmlFor="videoTitle">
                                 Title Your Video
                             </label>
                             <input
-                                className={`upload__input upload__input--title ${
-                                    !isTitleBlank ? "" : "upload__input--error"
-                                }`}
+                                className={`upload__input upload__input--title 
+                                ${!isTitleBlank ? "" : "upload__input--error"}`}
                                 type="text"
                                 name="videoTitle"
                                 id="videoTitle"
