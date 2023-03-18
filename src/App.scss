@@ -117,4 +117,20 @@ body {
     &__link {
         text-decoration: none;
     }
+
+    &__image {
+        text-align: center;
+        width: 100%;
+        border: none;
+        padding: 0.65rem;
+        margin-top: 1rem;
+        cursor: pointer;
+
+        @include tablet {
+            width: 9.375rem;
+            padding: 0.5rem;
+            height: 2.5rem;
+            // margin-top: 0;
+        }
+    }
 }

@@ -73,6 +73,13 @@
         }
     }
 
+    &__file-input {
+        width: 0.0063rem;
+        height: 0.0063rem;
+        opacity: 0;
+        position: absolute;
+    }
+
     &__inputs-container {
         margin-top: 1rem;
         display: flex;

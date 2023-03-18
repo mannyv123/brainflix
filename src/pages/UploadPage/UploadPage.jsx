@@ -11,6 +11,7 @@ function UploadPage() {
     const [videoDesc, setVideoDesc] = useState(""); //tracks video description input
     const [file, setFile] = useState(null); //tracks uploaded image files
     const [fileDataUrl, setFileDataUrl] = useState(null); //tracks data url for uploaded image file
+    const [filename, setFilename] = useState("Select an Image"); //tracks file name of uploaded file
     const [isTitleBlank, setIsTitleBlank] = useState(false); //used in form validation to render error scss if input is blank
     const [isDescBlank, setIsDescBlank] = useState(false); //used in form validation to render error scss if input is blank
     const [upload, setUpload] = useState(false); //used to trigger navigate when upload button is clicked
@@ -51,6 +52,7 @@ function UploadPage() {
                 console.log(event.target);
                 if (result && !isCancel) {
                     setFileDataUrl(result); //sets the file data url to the result; which allows the image element to set source to this url
+                    setFilename(file.name); //sets file name so that it is displayed once the is loaded
                 }
             };
             fileReader.readAsDataURL(file); //FileReader object starts reading the file; once complete, onload above is called
@@ -141,9 +143,12 @@ function UploadPage() {
                                 src={fileDataUrl ? fileDataUrl : uploadPreview}
                                 alt="upload preview"
                             />
+                            <label htmlFor="file" className="button button__image">{filename}</label>
                             <input
+                                className="upload__file-input"
                                 type="file"
                                 name="file"
+                                id="file"
                                 onChange={handleImageUpload}
                                 accept=".jpg, .jpeg, .png"
                             />
