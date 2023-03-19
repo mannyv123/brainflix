@@ -1,8 +1,6 @@
 import CommentCard from "../CommentCard/CommentCard";
 import "./Comments.scss";
 import commentIcon from "../../assets/icons/add_comment.svg";
-// import { apiUrl } from "../../pages/VideoPage/VideoPage";
-// import { apiKey } from "../../pages/VideoPage/VideoPage";
 import { API_URL } from "../../pages/VideoPage/VideoPage";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -29,6 +27,7 @@ function Comments({ currentVideo, getCurrentVideo }) {
     const handleCommentsSubmit = (event) => {
         event.preventDefault();
 
+        //Form validation - checks to see if comment input blank
         if (comment !== "") {
             const newComment = {
                 comment: comment,
@@ -62,12 +61,13 @@ function Comments({ currentVideo, getCurrentVideo }) {
             });
     };
 
-    //Checks to see if currentVideo comments have been loaded yet
+    //Checks to see if currentVideo comments have been loaded yet; displays loading when still loading
     useEffect(() => {
         if (!currentVideo.comments) {
             setIsLoading(true);
         } else {
             setIsLoading(false);
+
             //Determine number of comments
             setCommentCount(currentVideo.comments.length);
 

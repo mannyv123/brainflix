@@ -126,11 +126,14 @@ body {
         margin-top: 1rem;
         cursor: pointer;
 
+        &--error {
+            outline: 0.125rem solid $error-color;
+        }
+
         @include tablet {
             width: 9.375rem;
             padding: 0.5rem;
             height: 2.5rem;
-            // margin-top: 0;
         }
     }
 }

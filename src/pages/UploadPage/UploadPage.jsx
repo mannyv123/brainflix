@@ -14,10 +14,9 @@ function UploadPage() {
     const [filename, setFilename] = useState("Select an Image"); //tracks file name of uploaded file
     const [isTitleBlank, setIsTitleBlank] = useState(false); //used in form validation to render error scss if input is blank
     const [isDescBlank, setIsDescBlank] = useState(false); //used in form validation to render error scss if input is blank
+    const [imageMissing, setImageMissing] = useState(false);
     const [upload, setUpload] = useState(false); //used to trigger navigate when upload button is clicked
     const navigate = useNavigate();
-
-    // const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
     //Monitors title input field
     const handleTitleChange = (event) => {
@@ -32,13 +31,6 @@ function UploadPage() {
     //Monitors image input field
     const handleImageUpload = (event) => {
         setFile(event.target.files[0]); //updates file state with the File object which represents the selected file
-        // if (file !== null && !file.type.match(imageMimeType)) {
-        //     alert("Image file type not accepted. Only PNG, JPG, or JPEG accepted.");
-        //     setFile(null);
-        //     console.log("I ran");
-        //     return;
-        // }
-        console.log(file);
     };
 
     //useEffect to read the selected file and set the file data url;
@@ -50,7 +42,6 @@ function UploadPage() {
             fileReader.onload = (event) => {
                 //onload event occurs when the file is finished loading / fileReader is done reading the file
                 const { result } = event.target;
-                console.log(event.target);
                 if (result && !isCancel) {
                     setFileDataUrl(result); //sets the file data url to the result; which allows the image element to set source to this url
                     setFilename(file.name); //sets file name so that it is displayed once the is loaded
@@ -81,15 +72,20 @@ function UploadPage() {
     const isFormValid = () => {
         setIsTitleBlank(false);
         setIsDescBlank(false);
-        if (videoTitle === "" && videoDesc === "") {
+        setImageMissing(false);
+        if (videoTitle === "" && videoDesc === "" && !file) {
             setIsTitleBlank(true);
             setIsDescBlank(true);
+            setImageMissing(true);
             return false;
         } else if (videoTitle === "") {
             setIsTitleBlank(true);
             return false;
         } else if (videoDesc === "") {
             setIsDescBlank(true);
+            return false;
+        } else if (!file) {
+            setImageMissing(true);
             return false;
         } else {
             return true;
@@ -105,27 +101,23 @@ function UploadPage() {
             return console.error("Form is not valid; missing information");
         }
 
-        console.log(file);
         const formData = new FormData();
         formData.append("title", videoTitle);
         formData.append("description", videoDesc);
         formData.append("file", file);
-        console.log(formData);
 
         axios
             .post(`${API_URL}/videos`, formData)
-            .then((response) => {
-                console.log(response.data);
+            .then(() => {
+                setIsTitleBlank(false);
+                setIsDescBlank(false);
+                setUpload(true);
+                setVideoTitle("");
+                setVideoDesc("");
             })
             .catch((error) => {
                 console.error(error);
             });
-
-        setIsTitleBlank(false);
-        setIsDescBlank(false);
-        setUpload(true);
-        setVideoTitle("");
-        setVideoDesc("");
     };
 
     //When cancel button clicked, navigate back home
@@ -146,11 +138,17 @@ function UploadPage() {
                         <div>
                             <h3 className="upload__thumbnail-label">Video Thumbnail</h3>
                             <img
-                                className="upload__thumbnail-img"
+                                className={`upload__thumbnail-img ${
+                                    !imageMissing ? "" : "upload__thumbnail-img--error"
+                                }`}
                                 src={fileDataUrl ? fileDataUrl : uploadPreview}
                                 alt="upload preview"
                             />
-                            <label htmlFor="file" className="button button__image">
+                            <label
+                                htmlFor="file"
+                                className={`button button__image 
+                                ${!imageMissing ? "" : "button__image--error"}`}
+                            >
                                 {filename}
                             </label>
                             <input
@@ -193,8 +191,8 @@ function UploadPage() {
                             ></textarea>
                         </div>
                     </div>
-                    {isTitleBlank || isDescBlank ? (
-                        <p className="upload__input--error-msg">Input fields cannot be blank</p>
+                    {isTitleBlank || isDescBlank || imageMissing ? (
+                        <p className="upload__input--error-msg">Input fields cannot be missing</p>
                     ) : (
                         ""
                     )}

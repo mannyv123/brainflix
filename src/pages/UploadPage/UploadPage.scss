@@ -61,8 +61,12 @@
         transition: 1s;
         display: block;
 
+        &--error {
+            outline: 0.125rem solid $error-color;
+            transition: 0s;
+        }
+
         @include tablet {
-            transition: 1s;
             width: 21.625rem;
             height: 11.875rem;
         }

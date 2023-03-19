@@ -7,9 +7,6 @@ import CurrentVideoDetails from "../../components/CurrentVideoDetails/CurrentVid
 import NextVideos from "../../components/NextVideos/NextVideos";
 import "./VideoPage.scss";
 
-export const apiUrl = "https://project-2-api.herokuapp.com";
-export const apiKey = "d28fb146-1574-4fbd-a40b-9046fc985897";
-
 export const API_URL = "http://localhost:5001";
 
 function VideoPage() {
@@ -74,11 +71,11 @@ function VideoPage() {
             });
     }
 
-    //Axios call to like video
+    /* Axios call to like current video; re-renders current video to show updated like count */
     function likeVideo(videoId) {
         axios
             .post(`${API_URL}/videos/${videoId}/likes`)
-            .then((response) => {
+            .then(() => {
                 getCurrentVideo(videoId);
             })
             .catch((error) => {
@@ -88,7 +85,6 @@ function VideoPage() {
 
     return (
         <main>
-            {/* Note: videoSource just a placeholder; will not work until api added */}
             {/* Ternary operator used that renders error msg if current video cannot be found */}
             {foundVideo ? (
                 <CurrentVideo currentVideo={currentVideo} />
