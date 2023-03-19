@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./UploadPage.scss";
 import uploadPreview from "../../assets/images/Upload-video-preview.jpg";
@@ -41,13 +41,14 @@ function UploadPage() {
         console.log(file);
     };
 
-    //useEffect to read the selected file and set the file data url; 
+    //useEffect to read the selected file and set the file data url;
     useEffect(() => {
         let fileReader,
             isCancel = false;
         if (file) {
             fileReader = new FileReader();
-            fileReader.onload = (event) => { //onload event occurs when the file is finished loading / fileReader is done reading the file
+            fileReader.onload = (event) => {
+                //onload event occurs when the file is finished loading / fileReader is done reading the file
                 const { result } = event.target;
                 console.log(event.target);
                 if (result && !isCancel) {
@@ -57,9 +58,11 @@ function UploadPage() {
             };
             fileReader.readAsDataURL(file); //FileReader object starts reading the file; once complete, onload above is called
         }
-        return () => { //cleanup function; return stmnt needed if component is unmounted before loading is finished
+        return () => {
+            //cleanup function; return stmnt needed if component is unmounted before loading is finished
             isCancel = true; //first sets isCancel to true to ensure the onload function above does not set the file data url
-            if (fileReader && fileReader.readyState === 1) { //checks to see if fileReader object created and if its state is in the loading state
+            if (fileReader && fileReader.readyState === 1) {
+                //checks to see if fileReader object created and if its state is in the loading state
                 fileReader.abort(); //if the above two are true, aborts the file read
             }
         };
@@ -124,6 +127,10 @@ function UploadPage() {
         setVideoTitle("");
         setVideoDesc("");
     };
+
+    //When cancel button clicked, navigate back home
+    const handleCancel = () => navigate("/");
+
     console.log(file);
     return (
         <main>
@@ -143,7 +150,9 @@ function UploadPage() {
                                 src={fileDataUrl ? fileDataUrl : uploadPreview}
                                 alt="upload preview"
                             />
-                            <label htmlFor="file" className="button button__image">{filename}</label>
+                            <label htmlFor="file" className="button button__image">
+                                {filename}
+                            </label>
                             <input
                                 className="upload__file-input"
                                 type="file"
@@ -196,9 +205,9 @@ function UploadPage() {
                                 Publish
                                 <div className="button__publish-icon button--hidden"></div>
                             </button>
-                            <Link className="upload__cancel" to="/">
-                                <p>Cancel</p>
-                            </Link>
+                            <button type="button" className="upload__cancel" onClick={handleCancel}>
+                                Cancel
+                            </button>
                         </div>
                     ) : (
                         <p className="upload__success">
