@@ -12,6 +12,8 @@ renders any existing comments for the current video using CommentCard component 
 function Comments({ currentVideo, getCurrentVideo }) {
     const [comment, setComment] = useState("");
     const [isBlank, setIsBlank] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [commentCount, setCommentCount] = useState(0);
 
     //function to handle textarea input change
     const handleInputChange = (event) => {
@@ -61,17 +63,20 @@ function Comments({ currentVideo, getCurrentVideo }) {
     };
 
     //Checks to see if currentVideo comments have been loaded yet
-    if (!currentVideo.comments) {
-        return;
-    }
+    useEffect(() => {
+        if (!currentVideo.comments) {
+            setIsLoading(true);
+        } else {
+            setIsLoading(false);
+            //Determine number of comments
+            setCommentCount(currentVideo.comments.length);
 
-    //Determine number of comments
-    const commentCount = currentVideo.comments.length;
-
-    //Sort comments from latest to oldest
-    currentVideo.comments.sort((firstComment, lastComment) => {
-        return lastComment.timestamp - firstComment.timestamp;
-    });
+            //Sort comments from latest to oldest
+            currentVideo.comments.sort((firstComment, lastComment) => {
+                return lastComment.timestamp - firstComment.timestamp;
+            });
+        }
+    }, [currentVideo]);
 
     return (
         <section className="comments">
@@ -108,18 +113,22 @@ function Comments({ currentVideo, getCurrentVideo }) {
                     </button>
                 </form>
             </div>
-            <ul className="comments__list">
-                {currentVideo.comments.map((comment) => {
-                    return (
-                        <CommentCard
-                            key={comment.id}
-                            comment={comment}
-                            handleCommentsDelete={handleCommentsDelete}
-                            videoId={currentVideo.id}
-                        />
-                    );
-                })}
-            </ul>
+            {isLoading ? (
+                <p className="comments__loading">Loading . . .</p>
+            ) : (
+                <ul className="comments__list">
+                    {currentVideo.comments.map((comment) => {
+                        return (
+                            <CommentCard
+                                key={comment.id}
+                                comment={comment}
+                                handleCommentsDelete={handleCommentsDelete}
+                                videoId={currentVideo.id}
+                            />
+                        );
+                    })}
+                </ul>
+            )}
         </section>
     );
 }
