@@ -4,7 +4,7 @@ import likesIcon from "../../assets/icons/likes.svg";
 import viewsIcon from "../../assets/icons/views.svg";
 
 /* Displays details of the currently selected video */
-function CurrentVideoDetails({ currentVideo }) {
+function CurrentVideoDetails({ currentVideo, likeVideo }) {
     const timeSincePost = timeAgo(new Date(Date.now()), currentVideo.timestamp);
 
     return (
@@ -20,7 +20,7 @@ function CurrentVideoDetails({ currentVideo }) {
                         <img src={viewsIcon} alt="views icon" className="video__views-icon" />
                         <p className="video__views-count">{currentVideo.views}</p>
                     </div>
-                    <div className="video__likes">
+                    <div onClick={() => likeVideo(currentVideo.id)} className="video__likes">
                         <img src={likesIcon} alt="likes icon" className="video__likes-icon" />
                         <p className="video__likes-count">{currentVideo.likes}</p>
                     </div>

@@ -74,6 +74,18 @@ function VideoPage() {
             });
     }
 
+    //Axios call to like video
+    function likeVideo(videoId) {
+        axios
+            .post(`${API_URL}/videos/${videoId}/likes`)
+            .then((response) => {
+                getCurrentVideo(videoId);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     return (
         <main>
             {/* Note: videoSource just a placeholder; will not work until api added */}
@@ -85,7 +97,7 @@ function VideoPage() {
             )}
             <section className="content">
                 <section className="content__current-video">
-                    <CurrentVideoDetails currentVideo={currentVideo} />
+                    <CurrentVideoDetails currentVideo={currentVideo} likeVideo={likeVideo} />
                     <Comments currentVideo={currentVideo} getCurrentVideo={getCurrentVideo} />
                 </section>
                 <NextVideos videos={videos} currentVideoId={currentVideo.id} />
