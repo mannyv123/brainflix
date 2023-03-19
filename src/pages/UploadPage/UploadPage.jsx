@@ -111,6 +111,7 @@ function UploadPage() {
             .then(() => {
                 setIsTitleBlank(false);
                 setIsDescBlank(false);
+                setImageMissing(false);
                 setUpload(true);
                 setVideoTitle("");
                 setVideoDesc("");
