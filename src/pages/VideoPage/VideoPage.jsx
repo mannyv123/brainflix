@@ -7,7 +7,7 @@ import CurrentVideoDetails from "../../components/CurrentVideoDetails/CurrentVid
 import NextVideos from "../../components/NextVideos/NextVideos";
 import "./VideoPage.scss";
 
-export const API_URL = "http://localhost:5001";
+export const API_URL = process.env.REACT_APP_API_URL;
 
 function VideoPage() {
     const [videos, setVideos] = useState([]);
